@@ -1,0 +1,401 @@
+{
+	"type": "actor",
+	"nodes": {
+		"onTick1": {
+			"type": "onTick"
+		},
+		"setObjectPosition1": {
+			"type": "setObjectPosition",
+			"params": {
+				"lerp": 0.19
+			},
+			"maxInputsCount": 5
+		},
+		"rayFromCursor1": {
+			"type": "rayFromCursor",
+			"connection_points": {
+				"in": [],
+				"out": [
+					{
+						"name": "ray",
+						"type": "Ray",
+						"isArray": false
+					}
+				]
+			}
+		},
+		"plane1": {
+			"type": "plane",
+			"params": {
+				"normal": [
+					0,
+					0,
+					1
+				]
+			},
+			"connection_points": {
+				"in": [],
+				"out": [
+					{
+						"name": "plane",
+						"type": "Plane",
+						"isArray": false
+					}
+				]
+			}
+		},
+		"rayIntersectPlane1": {
+			"type": "rayIntersectPlane",
+			"inputs": [
+				{
+					"index": 0,
+					"node": "rayFromCursor1",
+					"output": "ray"
+				},
+				{
+					"index": 1,
+					"node": "plane1",
+					"output": "plane"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "Ray",
+						"type": "Ray",
+						"isArray": false
+					},
+					{
+						"name": "Plane",
+						"type": "Plane",
+						"isArray": false
+					}
+				],
+				"out": [
+					{
+						"name": "position",
+						"type": "Vector3",
+						"isArray": false
+					}
+				]
+			}
+		},
+		"vec3ToFloat1": {
+			"type": "vec3ToFloat",
+			"params": {
+				"vec3": {
+					"overriden_options": {}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"node": "add1",
+					"output": "sum"
+				}
+			]
+		},
+		"floatToVec3_2": {
+			"type": "floatToVec3",
+			"params": {
+				"x": {
+					"overriden_options": {}
+				},
+				"y": {
+					"overriden_options": {}
+				},
+				"z": {
+					"overriden_options": {}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"node": "mult2",
+					"output": "product"
+				},
+				{
+					"index": 1,
+					"node": "mult1",
+					"output": "product"
+				}
+			]
+		},
+		"getObjectProperty1": {
+			"type": "getObjectProperty"
+		},
+		"vec3ToFloat2": {
+			"type": "vec3ToFloat",
+			"params": {
+				"vec3": {
+					"overriden_options": {}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"node": "getObjectProperty1",
+					"output": "position"
+				}
+			]
+		},
+		"setObjectLookAt1": {
+			"type": "setObjectLookAt",
+			"params": {
+				"targetPosition": [
+					0,
+					0.5,
+					0
+				]
+			},
+			"maxInputsCount": 6
+		},
+		"setObjectRotation1": {
+			"type": "setObjectRotation",
+			"params": {
+				"rotation": {
+					"overriden_options": {}
+				},
+				"lerp": {
+					"raw_input": 0.09,
+					"overriden_options": {}
+				},
+				"updateMatrix": {
+					"overriden_options": {}
+				}
+			},
+			"maxInputsCount": 5,
+			"inputs": [
+				{
+					"index": 0,
+					"node": "onTick1",
+					"output": "trigger"
+				},
+				null,
+				{
+					"index": 2,
+					"node": "floatToVec3_2",
+					"output": "vec3"
+				}
+			]
+		},
+		"multScalar1": {
+			"type": "multScalar",
+			"params": {
+				"value": {
+					"type": "float",
+					"default_value": 1,
+					"options": {
+						"spare": true,
+						"editable": false
+					}
+				},
+				"mult": {
+					"type": "float",
+					"default_value": 1,
+					"options": {
+						"spare": true,
+						"editable": true
+					},
+					"raw_input": 0.19
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"node": "vec3ToFloat1",
+					"output": "x"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "value",
+						"type": "float",
+						"isArray": false
+					},
+					{
+						"name": "mult",
+						"type": "float",
+						"isArray": false
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "float",
+						"isArray": false
+					}
+				]
+			}
+		},
+		"mult1": {
+			"type": "mult",
+			"params": {
+				"mult0": {
+					"type": "float",
+					"default_value": 1,
+					"options": {
+						"spare": true,
+						"editable": false
+					}
+				},
+				"mult1": {
+					"type": "float",
+					"default_value": 1,
+					"options": {
+						"spare": true,
+						"editable": true
+					},
+					"raw_input": -0.1
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"node": "vec3ToFloat1",
+					"output": "x"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "mult0",
+						"type": "float",
+						"isArray": false
+					},
+					{
+						"name": "mult1",
+						"type": "float",
+						"isArray": false
+					}
+				],
+				"out": [
+					{
+						"name": "product",
+						"type": "float",
+						"isArray": false
+					}
+				]
+			}
+		},
+		"mult2": {
+			"type": "mult",
+			"params": {
+				"mult0": {
+					"type": "float",
+					"default_value": 1,
+					"options": {
+						"spare": true,
+						"editable": false
+					}
+				},
+				"mult1": {
+					"type": "float",
+					"default_value": 1,
+					"options": {
+						"spare": true,
+						"editable": true
+					},
+					"raw_input": 0.2
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"node": "vec3ToFloat1",
+					"output": "y"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "mult0",
+						"type": "float",
+						"isArray": false
+					},
+					{
+						"name": "mult1",
+						"type": "float",
+						"isArray": false
+					}
+				],
+				"out": [
+					{
+						"name": "product",
+						"type": "float",
+						"isArray": false
+					}
+				]
+			}
+		},
+		"add1": {
+			"type": "add",
+			"params": {
+				"add0": {
+					"type": "vector3",
+					"default_value": [
+						0,
+						0,
+						0
+					],
+					"options": {
+						"spare": true,
+						"editable": false
+					}
+				},
+				"add1": {
+					"type": "vector3",
+					"default_value": [
+						0,
+						0,
+						0
+					],
+					"options": {
+						"spare": true,
+						"editable": true
+					},
+					"raw_input": [
+						0,
+						-0.5,
+						0
+					]
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"node": "rayIntersectPlane1",
+					"output": "position"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "add0",
+						"type": "Vector3",
+						"isArray": false
+					},
+					{
+						"name": "add1",
+						"type": "Vector3",
+						"isArray": false
+					}
+				],
+				"out": [
+					{
+						"name": "sum",
+						"type": "Vector3",
+						"isArray": false
+					}
+				]
+			}
+		}
+	},
+	"inputs": [
+		"hierarchy1"
+	],
+	"flags": {
+		"display": true
+	}
+}

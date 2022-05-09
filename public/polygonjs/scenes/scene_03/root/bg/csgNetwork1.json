@@ -1,0 +1,31 @@
+{
+	"type": "csgNetwork",
+	"nodes": {
+		"rectangle1": {
+			"type": "rectangle"
+		},
+		"expand1": {
+			"type": "expand",
+			"params": {
+				"delta": 0.2600074,
+				"segments": 8
+			},
+			"inputs": [
+				"rectangle1"
+			]
+		},
+		"extrudeRectangular1": {
+			"type": "extrudeRectangular",
+			"params": {
+				"size": 0.0200000098,
+				"height": 0.0200000098
+			},
+			"inputs": [
+				"expand1"
+			],
+			"flags": {
+				"display": true
+			}
+		}
+	}
+}

@@ -1,0 +1,1163 @@
+{
+	"type": "meshStandardBuilder",
+	"nodes": {
+		"constant1": {
+			"type": "constant",
+			"params": {
+				"type": 4,
+				"color": [
+					0.8431372549019608,
+					0.09803921568627451,
+					0.09803921568627451
+				],
+				"asColor": true
+			},
+			"connection_points": {
+				"in": [],
+				"out": [
+					{
+						"name": "val",
+						"type": "vec3"
+					}
+				]
+			}
+		},
+		"constant2": {
+			"type": "constant",
+			"params": {
+				"type": 4,
+				"color": [
+					1,
+					1,
+					1
+				],
+				"asColor": true
+			},
+			"connection_points": {
+				"in": [],
+				"out": [
+					{
+						"name": "val",
+						"type": "vec3"
+					}
+				]
+			}
+		},
+		"globals1": {
+			"type": "globals"
+		},
+		"mix1": {
+			"type": "mix",
+			"params": {
+				"value0": {
+					"type": "vector3",
+					"default_value": [
+						0,
+						0,
+						0
+					],
+					"options": {
+						"spare": true,
+						"editable": false
+					}
+				},
+				"value1": {
+					"type": "vector3",
+					"default_value": [
+						0,
+						0,
+						0
+					],
+					"options": {
+						"spare": true,
+						"editable": false
+					}
+				},
+				"blend": {
+					"type": "float",
+					"default_value": 0.5,
+					"options": {
+						"spare": true,
+						"editable": false
+					}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"node": "oklabToRgb1",
+					"output": "rgb"
+				},
+				{
+					"index": 1,
+					"node": "constant2",
+					"output": "val"
+				},
+				{
+					"index": 2,
+					"node": "smoothstep4",
+					"output": "val"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "value0",
+						"type": "vec3"
+					},
+					{
+						"name": "value1",
+						"type": "vec3"
+					},
+					{
+						"name": "blend",
+						"type": "float"
+					}
+				],
+				"out": [
+					{
+						"name": "mix",
+						"type": "vec3"
+					}
+				]
+			}
+		},
+		"output1": {
+			"type": "output",
+			"inputs": [
+				null,
+				null,
+				{
+					"index": 2,
+					"node": "mix1",
+					"output": "mix"
+				}
+			]
+		},
+		"SDFBox2": {
+			"type": "SDFBox",
+			"params": {
+				"position": {
+					"overriden_options": {}
+				},
+				"center": {
+					"overriden_options": {}
+				},
+				"size": {
+					"raw_input": [
+						0.42,
+						0.42,
+						0.42
+					],
+					"overriden_options": {}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"node": "globals1",
+					"output": "position"
+				}
+			]
+		},
+		"rgbToOklab1": {
+			"type": "rgbToOklab",
+			"params": {
+				"rgb": {
+					"overriden_options": {}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"node": "constant1",
+					"output": "val"
+				}
+			]
+		},
+		"oklabToRgb1": {
+			"type": "oklabToRgb",
+			"params": {
+				"oklab": {
+					"overriden_options": {}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"node": "mix4",
+					"output": "mix"
+				}
+			]
+		},
+		"mult3": {
+			"type": "mult",
+			"params": {
+				"mult0": {
+					"type": "float",
+					"default_value": 1,
+					"options": {
+						"spare": true,
+						"editable": false
+					}
+				},
+				"mult1": {
+					"type": "float",
+					"default_value": 1,
+					"options": {
+						"spare": true,
+						"editable": false
+					}
+				},
+				"mult2": {
+					"type": "float",
+					"default_value": 1,
+					"options": {
+						"spare": true,
+						"editable": true
+					}
+				}
+			},
+			"maxInputsCount": 3,
+			"inputs": [
+				{
+					"index": 0,
+					"node": "complement3",
+					"output": "val"
+				},
+				{
+					"index": 1,
+					"node": "constant3",
+					"output": "val"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "mult0",
+						"type": "float"
+					},
+					{
+						"name": "mult1",
+						"type": "float"
+					},
+					{
+						"name": "mult2",
+						"type": "float"
+					}
+				],
+				"out": [
+					{
+						"name": "product",
+						"type": "float"
+					}
+				]
+			}
+		},
+		"constant3": {
+			"type": "constant",
+			"params": {
+				"float": 14
+			},
+			"connection_points": {
+				"in": [],
+				"out": [
+					{
+						"name": "val",
+						"type": "float"
+					}
+				]
+			}
+		},
+		"round1": {
+			"type": "round",
+			"params": {
+				"in": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": false
+					}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"node": "mult3",
+					"output": "product"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "in",
+						"type": "float"
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "float"
+					}
+				]
+			}
+		},
+		"divide1": {
+			"type": "divide",
+			"params": {
+				"div0": {
+					"type": "float",
+					"default_value": 1,
+					"options": {
+						"spare": true,
+						"editable": false
+					}
+				},
+				"div1": {
+					"type": "float",
+					"default_value": 1,
+					"options": {
+						"spare": true,
+						"editable": false
+					}
+				},
+				"div2": {
+					"type": "float",
+					"default_value": 1,
+					"options": {
+						"spare": true,
+						"editable": true
+					}
+				}
+			},
+			"maxInputsCount": 3,
+			"inputs": [
+				{
+					"index": 0,
+					"node": "round1",
+					"output": "val"
+				},
+				{
+					"index": 1,
+					"node": "constant3",
+					"output": "val"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "div0",
+						"type": "float"
+					},
+					{
+						"name": "div1",
+						"type": "float"
+					},
+					{
+						"name": "div2",
+						"type": "float"
+					}
+				],
+				"out": [
+					{
+						"name": "divide",
+						"type": "float"
+					}
+				]
+			}
+		},
+		"multAdd5": {
+			"type": "multAdd",
+			"params": {
+				"value": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": false
+					}
+				},
+				"preAdd": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": true
+					},
+					"raw_input": -0.2
+				},
+				"mult": {
+					"type": "float",
+					"default_value": 1,
+					"options": {
+						"spare": true,
+						"editable": true
+					}
+				},
+				"postAdd": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": true
+					}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"node": "null1",
+					"output": "val"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "value",
+						"type": "float"
+					},
+					{
+						"name": "preAdd",
+						"type": "float"
+					},
+					{
+						"name": "mult",
+						"type": "float"
+					},
+					{
+						"name": "postAdd",
+						"type": "float"
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "float"
+					}
+				]
+			}
+		},
+		"fit1": {
+			"type": "fit",
+			"params": {
+				"val": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": false
+					}
+				},
+				"srcMin": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": true
+					}
+				},
+				"srcMax": {
+					"type": "float",
+					"default_value": 1,
+					"options": {
+						"spare": true,
+						"editable": true
+					}
+				},
+				"destMin": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": true
+					}
+				},
+				"destMax": {
+					"type": "float",
+					"default_value": 1,
+					"options": {
+						"spare": true,
+						"editable": true
+					},
+					"raw_input": 0.9
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"node": "null1",
+					"output": "val"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "val",
+						"type": "float"
+					},
+					{
+						"name": "srcMin",
+						"type": "float"
+					},
+					{
+						"name": "srcMax",
+						"type": "float"
+					},
+					{
+						"name": "destMin",
+						"type": "float"
+					},
+					{
+						"name": "destMax",
+						"type": "float"
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "float"
+					}
+				]
+			}
+		},
+		"constant4": {
+			"type": "constant",
+			"params": {
+				"type": 4,
+				"color": [
+					0.08235294117647059,
+					0.043137254901960784,
+					0.615686274509804
+				],
+				"asColor": true
+			},
+			"connection_points": {
+				"in": [],
+				"out": [
+					{
+						"name": "val",
+						"type": "vec3"
+					}
+				]
+			}
+		},
+		"rgbToOklab3": {
+			"type": "rgbToOklab",
+			"params": {
+				"rgb": {
+					"overriden_options": {}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"node": "constant4",
+					"output": "val"
+				}
+			]
+		},
+		"mix4": {
+			"type": "mix",
+			"params": {
+				"value0": {
+					"type": "vector3",
+					"default_value": [
+						0,
+						0,
+						0
+					],
+					"options": {
+						"spare": true,
+						"editable": false
+					}
+				},
+				"value1": {
+					"type": "vector3",
+					"default_value": [
+						0,
+						0,
+						0
+					],
+					"options": {
+						"spare": true,
+						"editable": false
+					}
+				},
+				"blend": {
+					"type": "float",
+					"default_value": 0.5,
+					"options": {
+						"spare": true,
+						"editable": false
+					},
+					"raw_input": 1
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"node": "rgbToOklab3",
+					"output": "oklab"
+				},
+				{
+					"index": 1,
+					"node": "rgbToOklab1",
+					"output": "oklab"
+				},
+				{
+					"index": 2,
+					"node": "divide1",
+					"output": "divide"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "value0",
+						"type": "vec3"
+					},
+					{
+						"name": "value1",
+						"type": "vec3"
+					},
+					{
+						"name": "blend",
+						"type": "float"
+					}
+				],
+				"out": [
+					{
+						"name": "mix",
+						"type": "vec3"
+					}
+				]
+			}
+		},
+		"smoothstep4": {
+			"type": "smoothstep",
+			"params": {
+				"edge0": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": true
+					}
+				},
+				"edge1": {
+					"type": "float",
+					"default_value": 1,
+					"options": {
+						"spare": true,
+						"editable": true
+					},
+					"raw_input": 0.01
+				},
+				"x": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": false
+					}
+				}
+			},
+			"inputs": [
+				null,
+				null,
+				{
+					"index": 2,
+					"node": "multAdd5",
+					"output": "val"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "edge0",
+						"type": "float"
+					},
+					{
+						"name": "edge1",
+						"type": "float"
+					},
+					{
+						"name": "x",
+						"type": "float"
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "float"
+					}
+				]
+			}
+		},
+		"complement3": {
+			"type": "complement",
+			"params": {
+				"in": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": false
+					}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"node": "fit1",
+					"output": "val"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "in",
+						"type": "float"
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "float"
+					}
+				]
+			}
+		},
+		"null1": {
+			"type": "null",
+			"params": {
+				"in": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": false
+					}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"node": "SDFUnion1",
+					"output": "union"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "in",
+						"type": "float"
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "float"
+					}
+				]
+			}
+		},
+		"SDFSphere1": {
+			"type": "SDFSphere",
+			"params": {
+				"position": {
+					"overriden_options": {}
+				},
+				"center": {
+					"raw_input": [
+						-0.5,
+						0,
+						0
+					],
+					"overriden_options": {}
+				},
+				"radius": {
+					"raw_input": 0.32999999999999996,
+					"overriden_options": {}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"node": "globals1",
+					"output": "position"
+				},
+				{
+					"index": 1,
+					"node": "floatToVec3_1",
+					"output": "vec3"
+				}
+			]
+		},
+		"SDFUnion1": {
+			"type": "SDFUnion",
+			"params": {
+				"sdf0": {
+					"overriden_options": {}
+				},
+				"sdf1": {
+					"overriden_options": {}
+				},
+				"smooth": {
+					"raw_input": 1,
+					"overriden_options": {}
+				},
+				"smoothFactor": {
+					"raw_input": 0.26,
+					"overriden_options": {}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"node": "SDFSphere1",
+					"output": "float"
+				},
+				{
+					"index": 1,
+					"node": "SDFBox2",
+					"output": "float"
+				}
+			]
+		},
+		"param1": {
+			"type": "param",
+			"params": {
+				"name": "blobPos",
+				"type": 4
+			},
+			"connection_points": {
+				"in": [],
+				"out": [
+					{
+						"name": "val",
+						"type": "vec3"
+					}
+				]
+			}
+		},
+		"vec3ToFloat1": {
+			"type": "vec3ToFloat",
+			"params": {
+				"vec": {
+					"overriden_options": {}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"node": "param1",
+					"output": "val"
+				}
+			]
+		},
+		"floatToVec3_1": {
+			"type": "floatToVec3",
+			"params": {
+				"x": {
+					"overriden_options": {}
+				},
+				"y": {
+					"overriden_options": {}
+				},
+				"z": {
+					"overriden_options": {}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"node": "vec3ToFloat1",
+					"output": "x"
+				},
+				{
+					"index": 1,
+					"node": "multAdd1",
+					"output": "val"
+				}
+			]
+		},
+		"multAdd1": {
+			"type": "multAdd",
+			"params": {
+				"value": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": false
+					},
+					"overriden_options": {}
+				},
+				"preAdd": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": true
+					},
+					"raw_input": -0.5
+				},
+				"mult": {
+					"type": "float",
+					"default_value": 1,
+					"options": {
+						"spare": true,
+						"editable": true
+					}
+				},
+				"postAdd": {
+					"type": "float",
+					"default_value": 0,
+					"options": {
+						"spare": true,
+						"editable": true
+					}
+				}
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"node": "vec3ToFloat1",
+					"output": "y"
+				}
+			],
+			"connection_points": {
+				"in": [
+					{
+						"name": "value",
+						"type": "float"
+					},
+					{
+						"name": "preAdd",
+						"type": "float"
+					},
+					{
+						"name": "mult",
+						"type": "float"
+					},
+					{
+						"name": "postAdd",
+						"type": "float"
+					}
+				],
+				"out": [
+					{
+						"name": "val",
+						"type": "float"
+					}
+				]
+			}
+		}
+	},
+	"params": {
+		"metalness": 0,
+		"roughness": 1,
+		"blobPos": {
+			"type": "vector3",
+			"default_value": [
+				0,
+				0,
+				0
+			],
+			"options": {
+				"spare": true,
+				"computeOnDirty": true,
+				"cook": false,
+				"dependentOnFoundNode": true
+			},
+			"raw_input": [
+				3.49730743616249,
+				-0.7074263852294684,
+				-0.5
+			],
+			"overriden_options": {
+				"callback": "{}"
+			}
+		}
+	},
+	"persisted_config": {
+		"material": {
+			"metadata": {
+				"version": 4.5,
+				"type": "Material",
+				"generator": "Material.toJSON"
+			},
+			"uuid": "/bg/MAT/meshStandardBuilder1-main",
+			"type": "MeshStandardMaterial",
+			"name": "/bg/MAT/meshStandardBuilder1",
+			"color": 16777215,
+			"roughness": 1,
+			"metalness": 0,
+			"emissive": 0,
+			"envMapIntensity": 1,
+			"depthFunc": 3,
+			"depthTest": true,
+			"depthWrite": true,
+			"colorWrite": true,
+			"stencilWrite": false,
+			"stencilWriteMask": 255,
+			"stencilFunc": 519,
+			"stencilRef": 0,
+			"stencilFuncMask": 255,
+			"stencilFail": 7680,
+			"stencilZFail": 7680,
+			"stencilZPass": 7680
+		},
+		"onBeforeCompileDataJSON": {
+			"vertexShader": "#define STANDARD\nvarying vec3 vViewPosition;\n#ifdef USE_TRANSMISSION\n\tvarying vec3 vWorldPosition;\n#endif\n#include <common>\n\n\n\n// /bg/MAT/meshStandardBuilder1/globals1\nvarying vec3 v_POLY_globals1_position;\n\n\n\n\n#include <uv_pars_vertex>\n#include <uv2_pars_vertex>\n#include <displacementmap_pars_vertex>\n#include <color_pars_vertex>\n#include <fog_pars_vertex>\n#include <normal_pars_vertex>\n#include <morphtarget_pars_vertex>\n#include <skinning_pars_vertex>\n#include <shadowmap_pars_vertex>\n#include <logdepthbuf_pars_vertex>\n#include <clipping_planes_pars_vertex>\nvoid main() {\n\t#include <uv_vertex>\n\t#include <uv2_vertex>\n\t#include <color_vertex>\n\n\n\n\t// /bg/MAT/meshStandardBuilder1/globals1\n\tv_POLY_globals1_position = vec3(position);\n\t\n\t// /bg/MAT/meshStandardBuilder1/output1\n\tvec3 transformed = position;\n\tvec3 objectNormal = normal;\n\t#ifdef USE_TANGENT\n\t\tvec3 objectTangent = vec3( tangent.xyz );\n\t#endif\n\n\n\n\t#include <morphcolor_vertex>\n// removed:\n//\t#include <beginnormal_vertex>\n\t#include <morphnormal_vertex>\n\t#include <skinbase_vertex>\n\t#include <skinnormal_vertex>\n\t#include <defaultnormal_vertex>\n\t#include <normal_vertex>\n// removed:\n//\t#include <begin_vertex>\n\t#include <morphtarget_vertex>\n\t#include <skinning_vertex>\n\t#include <displacementmap_vertex>\n\t#include <project_vertex>\n\t#include <logdepthbuf_vertex>\n\t#include <clipping_planes_vertex>\n\tvViewPosition = - mvPosition.xyz;\n\t#include <worldpos_vertex>\n\t#include <shadowmap_vertex>\n\t#include <fog_vertex>\n#ifdef USE_TRANSMISSION\n\tvWorldPosition = worldPosition.xyz;\n#endif\n}",
+			"fragmentShader": "#define STANDARD\n#ifdef PHYSICAL\n\t#define IOR\n\t#define SPECULAR\n#endif\nuniform vec3 diffuse;\nuniform vec3 emissive;\nuniform float roughness;\nuniform float metalness;\nuniform float opacity;\n#ifdef IOR\n\tuniform float ior;\n#endif\n#ifdef SPECULAR\n\tuniform float specularIntensity;\n\tuniform vec3 specularColor;\n\t#ifdef USE_SPECULARINTENSITYMAP\n\t\tuniform sampler2D specularIntensityMap;\n\t#endif\n\t#ifdef USE_SPECULARCOLORMAP\n\t\tuniform sampler2D specularColorMap;\n\t#endif\n#endif\n#ifdef USE_CLEARCOAT\n\tuniform float clearcoat;\n\tuniform float clearcoatRoughness;\n#endif\n#ifdef USE_SHEEN\n\tuniform vec3 sheenColor;\n\tuniform float sheenRoughness;\n\t#ifdef USE_SHEENCOLORMAP\n\t\tuniform sampler2D sheenColorMap;\n\t#endif\n\t#ifdef USE_SHEENROUGHNESSMAP\n\t\tuniform sampler2D sheenRoughnessMap;\n\t#endif\n#endif\nvarying vec3 vViewPosition;\n#include <common>\n\n\n\n// /bg/MAT/meshStandardBuilder1/rgbToOklab3\n//////////////////////////////////////////////////////////////////////\n//\n// Visualizing Björn Ottosson's \"oklab\" colorspace\n//\n// shadertoy implementation by mattz\n//\n// license CC0 (public domain)\n// https://creativecommons.org/share-your-work/public-domain/cc0/\n//\n// Click and drag to set lightness (mouse x) and chroma (mouse y).\n// Hue varies linearly across the image from left to right.\n//\n// While mouse is down, plotted curves show oklab components\n// L (red), a (green), and b (blue). \n//\n// To test the inverse mapping, the plotted curves are generated\n// by mapping the (pre-clipping) linear RGB color back to oklab \n// space.\n//\n// White bars on top of the image (and black bars on the bottom of\n// the image) indicate clipping when one or more of the R, G, B \n// components are greater than 1.0 (or less than 0.0 respectively).\n//\n// The color accompanying the black/white bar shows which channels\n// are out of gamut.\n//\n// Click in the bottom left to reset the view.\n//\n// Hit the 'G' key to toggle displaying a gamut test:\n//\n//   * black pixels indicate that RGB values for some hues\n//     were clipped to 0 at the given lightness/chroma pair.\n//\n//   * white pixels indicate that RGB values for some hues\n//     were clipped to 1 at the given lightness/chroma pair\n//\n//   * gray pixels indicate that both types of clipping happened\n//\n// Hit the 'U' key to display a uniform sampling of linear sRGB \n// space, converted into oklab lightness (x position) and chroma\n// (y position) coordinates. If you mouse over a colored dot, the\n// spectrum on screen should include that exact color.\n//\n//////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////\n// sRGB color transform and inverse from \n// https://bottosson.github.io/posts/colorwrong/#what-can-we-do%3F\n\nvec3 srgb_from_linear_srgb(vec3 x) {\n\n    vec3 xlo = 12.92*x;\n    vec3 xhi = 1.055 * pow(x, vec3(0.4166666666666667)) - 0.055;\n    \n    return mix(xlo, xhi, step(vec3(0.0031308), x));\n\n}\n\nvec3 linear_srgb_from_srgb(vec3 x) {\n\n    vec3 xlo = x / 12.92;\n    vec3 xhi = pow((x + 0.055)/(1.055), vec3(2.4));\n    \n    return mix(xlo, xhi, step(vec3(0.04045), x));\n\n}\n\n//////////////////////////////////////////////////////////////////////\n// oklab transform and inverse from\n// https://bottosson.github.io/posts/oklab/\n\n\nconst mat3 fwdA = mat3(1.0, 1.0, 1.0,\n                       0.3963377774, -0.1055613458, -0.0894841775,\n                       0.2158037573, -0.0638541728, -1.2914855480);\n                       \nconst mat3 fwdB = mat3(4.0767245293, -1.2681437731, -0.0041119885,\n                       -3.3072168827, 2.6093323231, -0.7034763098,\n                       0.2307590544, -0.3411344290,  1.7068625689);\n\nconst mat3 invB = mat3(0.4121656120, 0.2118591070, 0.0883097947,\n                       0.5362752080, 0.6807189584, 0.2818474174,\n                       0.0514575653, 0.1074065790, 0.6302613616);\n                       \nconst mat3 invA = mat3(0.2104542553, 1.9779984951, 0.0259040371,\n                       0.7936177850, -2.4285922050, 0.7827717662,\n                       -0.0040720468, 0.4505937099, -0.8086757660);\n\nvec3 oklab_from_linear_srgb(vec3 c) {\n\n    vec3 lms = invB * c;\n            \n    return invA * (sign(lms)*pow(abs(lms), vec3(0.3333333333333)));\n    \n}\n\nvec3 linear_srgb_from_oklab(vec3 c) {\n\n    vec3 lms = fwdA * c;\n    \n    return fwdB * (lms * lms * lms);\n    \n}\n\n\n// https://www.shadertoy.com/view/WtccD7\nconst float max_chroma = 0.33;\nvec3 uvToOklab(vec3 uvw){\n\n    // setup oklab color\n    float theta = 2.*3.141592653589793*uvw.x;\n    \n    float L = 0.8;\n    float chroma = 0.1;\n    \n    //if (max(iMouse.x, iMouse.y) > 0.05 * iResolution.y) {\n        L = uvw.y;//iMouse.x / iResolution.x;\n        chroma = uvw.z * max_chroma;// / iResolution.y;\n    //}\n    \n    float a = chroma*cos(theta);\n    float b = chroma*sin(theta);\n    \n    vec3 lab = vec3(L, a, b);\n\treturn lab;\n\n    // convert to rgb \n    // vec3 rgb = linear_srgb_from_oklab(lab);\n\n}\n\n// /bg/MAT/meshStandardBuilder1/SDFBox2\n// https://iquilezles.org/www/articles/distfunctions/distfunctions.htm\n\nfloat sdSphere( vec3 p, float s )\n{\n\treturn length(p)-s;\n}\n\nfloat sdBox( vec3 p, vec3 b )\n{\n\tvec3 q = abs(p) - b;\n\treturn length(max(q,0.0)) + min(max(q.x,max(q.y,q.z)),0.0);\n}\n\n\nfloat opUnion( float d1, float d2 ) { return min(d1,d2); }\nfloat opSubtraction( float d1, float d2 ) { return max(-d1,d2); }\nfloat opIntersection( float d1, float d2 ) { return max(d1,d2); }\n\nfloat opSmoothUnion( float d1, float d2, float k ) {\n\tfloat h = clamp( 0.5 + 0.5*(d2-d1)/k, 0.0, 1.0 );\n\treturn mix( d2, d1, h ) - k*h*(1.0-h);\n}\n\nfloat opSmoothSubtraction( float d1, float d2, float k ) {\n\tfloat h = clamp( 0.5 - 0.5*(d2+d1)/k, 0.0, 1.0 );\n\treturn mix( d2, -d1, h ) + k*h*(1.0-h);\n}\n\nfloat opSmoothIntersection( float d1, float d2, float k ) {\n\tfloat h = clamp( 0.5 - 0.5*(d2-d1)/k, 0.0, 1.0 );\n\treturn mix( d2, d1, h ) + k*h*(1.0-h);\n}\n\n// /bg/MAT/meshStandardBuilder1/fit1\n//\n//\n// FIT\n//\n//\nfloat fit(float val, float srcMin, float srcMax, float destMin, float destMax){\n\tfloat src_range = srcMax - srcMin;\n\tfloat dest_range = destMax - destMin;\n\n\tfloat r = (val - srcMin) / src_range;\n\treturn (r * dest_range) + destMin;\n}\nvec2 fit(vec2 val, vec2 srcMin, vec2 srcMax, vec2 destMin, vec2 destMax){\n\treturn vec2(\n\t\tfit(val.x, srcMin.x, srcMax.x, destMin.x, destMax.x),\n\t\tfit(val.y, srcMin.y, srcMax.y, destMin.y, destMax.y)\n\t);\n}\nvec3 fit(vec3 val, vec3 srcMin, vec3 srcMax, vec3 destMin, vec3 destMax){\n\treturn vec3(\n\t\tfit(val.x, srcMin.x, srcMax.x, destMin.x, destMax.x),\n\t\tfit(val.y, srcMin.y, srcMax.y, destMin.y, destMax.y),\n\t\tfit(val.z, srcMin.z, srcMax.z, destMin.z, destMax.z)\n\t);\n}\nvec4 fit(vec4 val, vec4 srcMin, vec4 srcMax, vec4 destMin, vec4 destMax){\n\treturn vec4(\n\t\tfit(val.x, srcMin.x, srcMax.x, destMin.x, destMax.x),\n\t\tfit(val.y, srcMin.y, srcMax.y, destMin.y, destMax.y),\n\t\tfit(val.z, srcMin.z, srcMax.z, destMin.z, destMax.z),\n\t\tfit(val.w, srcMin.w, srcMax.w, destMin.w, destMax.w)\n\t);\n}\n\n//\n//\n// FIT TO 01\n// fits the range [srcMin, srcMax] to [0, 1]\n//\nfloat fitTo01(float val, float srcMin, float srcMax){\n\tfloat size = srcMax - srcMin;\n\treturn (val - srcMin) / size;\n}\nvec2 fitTo01(vec2 val, vec2 srcMin, vec2 srcMax){\n\treturn vec2(\n\t\tfitTo01(val.x, srcMin.x, srcMax.x),\n\t\tfitTo01(val.y, srcMin.y, srcMax.y)\n\t);\n}\nvec3 fitTo01(vec3 val, vec3 srcMin, vec3 srcMax){\n\treturn vec3(\n\t\tfitTo01(val.x, srcMin.x, srcMax.x),\n\t\tfitTo01(val.y, srcMin.y, srcMax.y),\n\t\tfitTo01(val.z, srcMin.z, srcMax.z)\n\t);\n}\nvec4 fitTo01(vec4 val, vec4 srcMin, vec4 srcMax){\n\treturn vec4(\n\t\tfitTo01(val.x, srcMin.x, srcMax.x),\n\t\tfitTo01(val.y, srcMin.y, srcMax.y),\n\t\tfitTo01(val.z, srcMin.z, srcMax.z),\n\t\tfitTo01(val.w, srcMin.w, srcMax.w)\n\t);\n}\n\n//\n//\n// FIT FROM 01\n// fits the range [0, 1] to [destMin, destMax]\n//\nfloat fitFrom01(float val, float destMin, float destMax){\n\treturn fit(val, 0.0, 1.0, destMin, destMax);\n}\nvec2 fitFrom01(vec2 val, vec2 srcMin, vec2 srcMax){\n\treturn vec2(\n\t\tfitFrom01(val.x, srcMin.x, srcMax.x),\n\t\tfitFrom01(val.y, srcMin.y, srcMax.y)\n\t);\n}\nvec3 fitFrom01(vec3 val, vec3 srcMin, vec3 srcMax){\n\treturn vec3(\n\t\tfitFrom01(val.x, srcMin.x, srcMax.x),\n\t\tfitFrom01(val.y, srcMin.y, srcMax.y),\n\t\tfitFrom01(val.z, srcMin.z, srcMax.z)\n\t);\n}\nvec4 fitFrom01(vec4 val, vec4 srcMin, vec4 srcMax){\n\treturn vec4(\n\t\tfitFrom01(val.x, srcMin.x, srcMax.x),\n\t\tfitFrom01(val.y, srcMin.y, srcMax.y),\n\t\tfitFrom01(val.z, srcMin.z, srcMax.z),\n\t\tfitFrom01(val.w, srcMin.w, srcMax.w)\n\t);\n}\n\n//\n//\n// FIT FROM 01 TO VARIANCE\n// fits the range [0, 1] to [center - variance, center + variance]\n//\nfloat fitFrom01ToVariance(float val, float center, float variance){\n\treturn fitFrom01(val, center - variance, center + variance);\n}\nvec2 fitFrom01ToVariance(vec2 val, vec2 center, vec2 variance){\n\treturn vec2(\n\t\tfitFrom01ToVariance(val.x, center.x, variance.x),\n\t\tfitFrom01ToVariance(val.y, center.y, variance.y)\n\t);\n}\nvec3 fitFrom01ToVariance(vec3 val, vec3 center, vec3 variance){\n\treturn vec3(\n\t\tfitFrom01ToVariance(val.x, center.x, variance.x),\n\t\tfitFrom01ToVariance(val.y, center.y, variance.y),\n\t\tfitFrom01ToVariance(val.z, center.z, variance.z)\n\t);\n}\nvec4 fitFrom01ToVariance(vec4 val, vec4 center, vec4 variance){\n\treturn vec4(\n\t\tfitFrom01ToVariance(val.x, center.x, variance.x),\n\t\tfitFrom01ToVariance(val.y, center.y, variance.y),\n\t\tfitFrom01ToVariance(val.z, center.z, variance.z),\n\t\tfitFrom01ToVariance(val.w, center.w, variance.w)\n\t);\n}\n\n// /bg/MAT/meshStandardBuilder1/complement3\nfloat complement(float x){return 1.0-x;}\nvec2 complement(vec2 x){return vec2(1.0-x.x, 1.0-x.y);}\nvec3 complement(vec3 x){return vec3(1.0-x.x, 1.0-x.y, 1.0-x.z);}\nvec4 complement(vec4 x){return vec4(1.0-x.x, 1.0-x.y, 1.0-x.z, 1.0-x.w);}\n\n\n\n\n\n\n\n\n// /bg/MAT/meshStandardBuilder1/param1\nuniform vec3 v_POLY_param_blobPos;\n\n// /bg/MAT/meshStandardBuilder1/globals1\nvarying vec3 v_POLY_globals1_position;\n\n\n\n\n#include <packing>\n#include <dithering_pars_fragment>\n#include <color_pars_fragment>\n#include <uv_pars_fragment>\n#include <uv2_pars_fragment>\n#include <map_pars_fragment>\n#include <alphamap_pars_fragment>\n#include <alphatest_pars_fragment>\n#include <aomap_pars_fragment>\n#include <lightmap_pars_fragment>\n#include <emissivemap_pars_fragment>\n#include <bsdfs>\n#include <cube_uv_reflection_fragment>\n#include <envmap_common_pars_fragment>\n#include <envmap_physical_pars_fragment>\n#include <fog_pars_fragment>\n#include <lights_pars_begin>\n#include <normal_pars_fragment>\n#include <lights_physical_pars_fragment>\n#include <transmission_pars_fragment>\n#include <shadowmap_pars_fragment>\n#include <bumpmap_pars_fragment>\n#include <normalmap_pars_fragment>\n#include <clearcoat_pars_fragment>\n#include <roughnessmap_pars_fragment>\n#include <metalnessmap_pars_fragment>\n#include <logdepthbuf_pars_fragment>\n#include <clipping_planes_pars_fragment>\nstruct SSSModel {\n\tbool isActive;\n\tvec3 color;\n\tfloat thickness;\n\tfloat power;\n\tfloat scale;\n\tfloat distortion;\n\tfloat ambient;\n\tfloat attenuation;\n};\n\nvoid RE_Direct_Scattering(\n\tconst in IncidentLight directLight,\n\tconst in GeometricContext geometry,\n\tconst in SSSModel sssModel,\n\tinout ReflectedLight reflectedLight\n\t){\n\tvec3 scatteringHalf = normalize(directLight.direction + (geometry.normal * sssModel.distortion));\n\tfloat scatteringDot = pow(saturate(dot(geometry.viewDir, -scatteringHalf)), sssModel.power) * sssModel.scale;\n\tvec3 scatteringIllu = (scatteringDot + sssModel.ambient) * (sssModel.color * (1.0-sssModel.thickness));\n\treflectedLight.directDiffuse += scatteringIllu * sssModel.attenuation * directLight.color;\n}\n\nvoid main() {\n\t#include <clipping_planes_fragment>\n\tvec4 diffuseColor = vec4( diffuse, opacity );\n\n\n\n\t// /bg/MAT/meshStandardBuilder1/constant4\n\tvec3 v_POLY_constant4_val = vec3(0.08235294117647059, 0.043137254901960784, 0.615686274509804);\n\t\n\t// /bg/MAT/meshStandardBuilder1/constant1\n\tvec3 v_POLY_constant1_val = vec3(0.8431372549019608, 0.09803921568627451, 0.09803921568627451);\n\t\n\t// /bg/MAT/meshStandardBuilder1/param1\n\tvec3 v_POLY_param1_val = v_POLY_param_blobPos;\n\t\n\t// /bg/MAT/meshStandardBuilder1/constant3\n\tfloat v_POLY_constant3_val = 14.0;\n\t\n\t// /bg/MAT/meshStandardBuilder1/constant2\n\tvec3 v_POLY_constant2_val = vec3(1.0, 1.0, 1.0);\n\t\n\t// /bg/MAT/meshStandardBuilder1/rgbToOklab3\n\tvec3 v_POLY_rgbToOklab3_oklab = oklab_from_linear_srgb(v_POLY_constant4_val);\n\t\n\t// /bg/MAT/meshStandardBuilder1/rgbToOklab1\n\tvec3 v_POLY_rgbToOklab1_oklab = oklab_from_linear_srgb(v_POLY_constant1_val);\n\t\n\t// /bg/MAT/meshStandardBuilder1/SDFBox2\n\tfloat v_POLY_SDFBox2_float = sdBox(v_POLY_globals1_position - vec3(0.0, 0.0, 0.0), vec3(0.42, 0.42, 0.42));\n\t\n\t// /bg/MAT/meshStandardBuilder1/vec3ToFloat1\n\tfloat v_POLY_vec3ToFloat1_x = v_POLY_param1_val.x;\n\tfloat v_POLY_vec3ToFloat1_y = v_POLY_param1_val.y;\n\t\n\t// /bg/MAT/meshStandardBuilder1/multAdd1\n\tfloat v_POLY_multAdd1_val = (1.0*(v_POLY_vec3ToFloat1_y + -0.5)) + 0.0;\n\t\n\t// /bg/MAT/meshStandardBuilder1/floatToVec3_1\n\tvec3 v_POLY_floatToVec3_1_vec3 = vec3(v_POLY_vec3ToFloat1_x, v_POLY_multAdd1_val, 0.0);\n\t\n\t// /bg/MAT/meshStandardBuilder1/SDFSphere1\n\tfloat v_POLY_SDFSphere1_float = sdSphere(v_POLY_globals1_position - v_POLY_floatToVec3_1_vec3, 0.32999999999999996);\n\t\n\t// /bg/MAT/meshStandardBuilder1/SDFUnion1\n\tfloat v_POLY_SDFUnion1_union = opSmoothUnion(v_POLY_SDFSphere1_float, v_POLY_SDFBox2_float, 0.26);\n\t\n\t// /bg/MAT/meshStandardBuilder1/null1\n\tfloat v_POLY_null1_val = v_POLY_SDFUnion1_union;\n\t\n\t// /bg/MAT/meshStandardBuilder1/fit1\n\tfloat v_POLY_fit1_val = fit(v_POLY_null1_val, 0.0, 1.0, 0.0, 0.9);\n\t\n\t// /bg/MAT/meshStandardBuilder1/multAdd5\n\tfloat v_POLY_multAdd5_val = (1.0*(v_POLY_null1_val + -0.2)) + 0.0;\n\t\n\t// /bg/MAT/meshStandardBuilder1/complement3\n\tfloat v_POLY_complement3_val = complement(v_POLY_fit1_val);\n\t\n\t// /bg/MAT/meshStandardBuilder1/smoothstep4\n\tfloat v_POLY_smoothstep4_val = smoothstep(0.0, 0.01, v_POLY_multAdd5_val);\n\t\n\t// /bg/MAT/meshStandardBuilder1/mult3\n\tfloat v_POLY_mult3_product = (v_POLY_complement3_val * v_POLY_constant3_val * 1.0);\n\t\n\t// /bg/MAT/meshStandardBuilder1/round1\n\tfloat v_POLY_round1_val = sign(v_POLY_mult3_product)*floor(abs(v_POLY_mult3_product)+0.5);\n\t\n\t// /bg/MAT/meshStandardBuilder1/divide1\n\tfloat v_POLY_divide1_divide = (v_POLY_round1_val / v_POLY_constant3_val / 1.0);\n\t\n\t// /bg/MAT/meshStandardBuilder1/mix4\n\tvec3 v_POLY_mix4_mix = mix(v_POLY_rgbToOklab3_oklab, v_POLY_rgbToOklab1_oklab, v_POLY_divide1_divide);\n\t\n\t// /bg/MAT/meshStandardBuilder1/oklabToRgb1\n\tvec3 v_POLY_oklabToRgb1_rgb = linear_srgb_from_oklab(v_POLY_mix4_mix);\n\t\n\t// /bg/MAT/meshStandardBuilder1/mix1\n\tvec3 v_POLY_mix1_mix = mix(v_POLY_oklabToRgb1_rgb, v_POLY_constant2_val, v_POLY_smoothstep4_val);\n\t\n\t// /bg/MAT/meshStandardBuilder1/output1\n\tdiffuseColor.xyz = v_POLY_mix1_mix;\n\tfloat POLY_metalness = 1.0;\n\tfloat POLY_roughness = 1.0;\n\tvec3 POLY_emissive = vec3(1.0, 1.0, 1.0);\n\tSSSModel POLY_SSSModel = SSSModel(/*isActive*/false,/*color*/vec3(1.0, 1.0, 1.0), /*thickness*/0.1, /*power*/2.0, /*scale*/16.0, /*distortion*/0.1,/*ambient*/0.4,/*attenuation*/0.8 );\n\n\n\n\tReflectedLight reflectedLight = ReflectedLight( vec3( 0.0 ), vec3( 0.0 ), vec3( 0.0 ), vec3( 0.0 ) );\n\tvec3 totalEmissiveRadiance = emissive * POLY_emissive;\n\t#include <logdepthbuf_fragment>\n\t#include <map_fragment>\n\t#include <color_fragment>\n\t#include <alphamap_fragment>\n\t#include <alphatest_fragment>\n\tfloat roughnessFactor = roughness * POLY_roughness;\n\n#ifdef USE_ROUGHNESSMAP\n\n\tvec4 texelRoughness = texture2D( roughnessMap, vUv );\n\n\t// reads channel G, compatible with a combined OcclusionRoughnessMetallic (RGB) texture\n\troughnessFactor *= texelRoughness.g;\n\n#endif\n\n\tfloat metalnessFactor = metalness * POLY_metalness;\n\n#ifdef USE_METALNESSMAP\n\n\tvec4 texelMetalness = texture2D( metalnessMap, vUv );\n\n\t// reads channel B, compatible with a combined OcclusionRoughnessMetallic (RGB) texture\n\tmetalnessFactor *= texelMetalness.b;\n\n#endif\n\n\t#include <normal_fragment_begin>\n\t#include <normal_fragment_maps>\n\t#include <clearcoat_normal_fragment_begin>\n\t#include <clearcoat_normal_fragment_maps>\n\t#include <emissivemap_fragment>\n\t#include <lights_physical_fragment>\n\t#include <lights_fragment_begin>\nif(POLY_SSSModel.isActive){\n\tRE_Direct_Scattering(directLight, geometry, POLY_SSSModel, reflectedLight);\n}\n\n\n\t#include <lights_fragment_maps>\n\t#include <lights_fragment_end>\n\t#include <aomap_fragment>\n\tvec3 totalDiffuse = reflectedLight.directDiffuse + reflectedLight.indirectDiffuse;\n\tvec3 totalSpecular = reflectedLight.directSpecular + reflectedLight.indirectSpecular;\n\t#include <transmission_fragment>\n\tvec3 outgoingLight = totalDiffuse + totalSpecular + totalEmissiveRadiance;\n\t#ifdef USE_SHEEN\n\t\tfloat sheenEnergyComp = 1.0 - 0.157 * max3( material.sheenColor );\n\t\toutgoingLight = outgoingLight * sheenEnergyComp + sheenSpecular;\n\t#endif\n\t#ifdef USE_CLEARCOAT\n\t\tfloat dotNVcc = saturate( dot( geometry.clearcoatNormal, geometry.viewDir ) );\n\t\tvec3 Fcc = F_Schlick( material.clearcoatF0, material.clearcoatF90, dotNVcc );\n\t\toutgoingLight = outgoingLight * ( 1.0 - material.clearcoat * Fcc ) + clearcoatSpecular * material.clearcoat;\n\t#endif\n\t#include <output_fragment>\n\t#include <tonemapping_fragment>\n\t#include <encodings_fragment>\n\t#include <fog_fragment>\n\t#include <premultiplied_alpha_fragment>\n\t#include <dithering_fragment>\n}",
+			"timeDependent": false,
+			"resolutionDependent": false,
+			"paramConfigs": [
+				{
+					"type": "vector3",
+					"name": "blobPos",
+					"defaultValue": [
+						0,
+						0,
+						0
+					],
+					"uniformName": "v_POLY_param_blobPos"
+				}
+			]
+		},
+		"customMaterials": {
+			"customDepthMaterial": {
+				"material": {
+					"metadata": {
+						"version": 4.5,
+						"type": "Material",
+						"generator": "Material.toJSON"
+					},
+					"uuid": "/bg/MAT/meshStandardBuilder1-customDepthMaterial",
+					"type": "MeshDepthMaterial",
+					"name": "customDepthMaterial",
+					"side": 1,
+					"depthFunc": 3,
+					"depthTest": true,
+					"depthWrite": true,
+					"colorWrite": true,
+					"stencilWrite": false,
+					"stencilWriteMask": 255,
+					"stencilFunc": 519,
+					"stencilRef": 0,
+					"stencilFuncMask": 255,
+					"stencilFail": 7680,
+					"stencilZFail": 7680,
+					"stencilZPass": 7680,
+					"depthPacking": 3201
+				},
+				"onBeforeCompileDataJSON": {
+					"vertexShader": "#include <common>\n\n\n\n// /bg/MAT/meshStandardBuilder1/globals1\nvarying vec3 v_POLY_globals1_position;\n\n\n\n\n#include <uv_pars_vertex>\n#include <displacementmap_pars_vertex>\n#include <morphtarget_pars_vertex>\n#include <skinning_pars_vertex>\n#include <logdepthbuf_pars_vertex>\n#include <clipping_planes_pars_vertex>\nvarying vec2 vHighPrecisionZW;\nvoid main() {\n\t#include <uv_vertex>\n\t#include <skinbase_vertex>\n\t#ifdef USE_DISPLACEMENTMAP\n// removed:\n//\t\t#include <beginnormal_vertex>\n\t\t#include <morphnormal_vertex>\n\t\t#include <skinnormal_vertex>\n\t#endif\n// removed:\n//\t#include <begin_vertex>\n\n\n\n\t// /bg/MAT/meshStandardBuilder1/globals1\n\tv_POLY_globals1_position = vec3(position);\n\t\n\t// /bg/MAT/meshStandardBuilder1/output1\n\tvec3 transformed = position;\n\tvec3 objectNormal = normal;\n\t#ifdef USE_TANGENT\n\t\tvec3 objectTangent = vec3( tangent.xyz );\n\t#endif\n\n\n\n\t#include <morphtarget_vertex>\n\t#include <skinning_vertex>\n\t#include <displacementmap_vertex>\n\t#include <project_vertex>\n\t#include <logdepthbuf_vertex>\n\t#include <clipping_planes_vertex>\n\tvHighPrecisionZW = gl_Position.zw;\n}",
+					"fragmentShader": "\n// INSERT DEFINES\n\n\n#if DEPTH_PACKING == 3200\n\n\tuniform float opacity;\n\n#endif\n\n#include <common>\n\n\n\n// /bg/MAT/meshStandardBuilder1/rgbToOklab3\n//////////////////////////////////////////////////////////////////////\n//\n// Visualizing Björn Ottosson's \"oklab\" colorspace\n//\n// shadertoy implementation by mattz\n//\n// license CC0 (public domain)\n// https://creativecommons.org/share-your-work/public-domain/cc0/\n//\n// Click and drag to set lightness (mouse x) and chroma (mouse y).\n// Hue varies linearly across the image from left to right.\n//\n// While mouse is down, plotted curves show oklab components\n// L (red), a (green), and b (blue). \n//\n// To test the inverse mapping, the plotted curves are generated\n// by mapping the (pre-clipping) linear RGB color back to oklab \n// space.\n//\n// White bars on top of the image (and black bars on the bottom of\n// the image) indicate clipping when one or more of the R, G, B \n// components are greater than 1.0 (or less than 0.0 respectively).\n//\n// The color accompanying the black/white bar shows which channels\n// are out of gamut.\n//\n// Click in the bottom left to reset the view.\n//\n// Hit the 'G' key to toggle displaying a gamut test:\n//\n//   * black pixels indicate that RGB values for some hues\n//     were clipped to 0 at the given lightness/chroma pair.\n//\n//   * white pixels indicate that RGB values for some hues\n//     were clipped to 1 at the given lightness/chroma pair\n//\n//   * gray pixels indicate that both types of clipping happened\n//\n// Hit the 'U' key to display a uniform sampling of linear sRGB \n// space, converted into oklab lightness (x position) and chroma\n// (y position) coordinates. If you mouse over a colored dot, the\n// spectrum on screen should include that exact color.\n//\n//////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////\n// sRGB color transform and inverse from \n// https://bottosson.github.io/posts/colorwrong/#what-can-we-do%3F\n\nvec3 srgb_from_linear_srgb(vec3 x) {\n\n    vec3 xlo = 12.92*x;\n    vec3 xhi = 1.055 * pow(x, vec3(0.4166666666666667)) - 0.055;\n    \n    return mix(xlo, xhi, step(vec3(0.0031308), x));\n\n}\n\nvec3 linear_srgb_from_srgb(vec3 x) {\n\n    vec3 xlo = x / 12.92;\n    vec3 xhi = pow((x + 0.055)/(1.055), vec3(2.4));\n    \n    return mix(xlo, xhi, step(vec3(0.04045), x));\n\n}\n\n//////////////////////////////////////////////////////////////////////\n// oklab transform and inverse from\n// https://bottosson.github.io/posts/oklab/\n\n\nconst mat3 fwdA = mat3(1.0, 1.0, 1.0,\n                       0.3963377774, -0.1055613458, -0.0894841775,\n                       0.2158037573, -0.0638541728, -1.2914855480);\n                       \nconst mat3 fwdB = mat3(4.0767245293, -1.2681437731, -0.0041119885,\n                       -3.3072168827, 2.6093323231, -0.7034763098,\n                       0.2307590544, -0.3411344290,  1.7068625689);\n\nconst mat3 invB = mat3(0.4121656120, 0.2118591070, 0.0883097947,\n                       0.5362752080, 0.6807189584, 0.2818474174,\n                       0.0514575653, 0.1074065790, 0.6302613616);\n                       \nconst mat3 invA = mat3(0.2104542553, 1.9779984951, 0.0259040371,\n                       0.7936177850, -2.4285922050, 0.7827717662,\n                       -0.0040720468, 0.4505937099, -0.8086757660);\n\nvec3 oklab_from_linear_srgb(vec3 c) {\n\n    vec3 lms = invB * c;\n            \n    return invA * (sign(lms)*pow(abs(lms), vec3(0.3333333333333)));\n    \n}\n\nvec3 linear_srgb_from_oklab(vec3 c) {\n\n    vec3 lms = fwdA * c;\n    \n    return fwdB * (lms * lms * lms);\n    \n}\n\n\n// https://www.shadertoy.com/view/WtccD7\nconst float max_chroma = 0.33;\nvec3 uvToOklab(vec3 uvw){\n\n    // setup oklab color\n    float theta = 2.*3.141592653589793*uvw.x;\n    \n    float L = 0.8;\n    float chroma = 0.1;\n    \n    //if (max(iMouse.x, iMouse.y) > 0.05 * iResolution.y) {\n        L = uvw.y;//iMouse.x / iResolution.x;\n        chroma = uvw.z * max_chroma;// / iResolution.y;\n    //}\n    \n    float a = chroma*cos(theta);\n    float b = chroma*sin(theta);\n    \n    vec3 lab = vec3(L, a, b);\n\treturn lab;\n\n    // convert to rgb \n    // vec3 rgb = linear_srgb_from_oklab(lab);\n\n}\n\n// /bg/MAT/meshStandardBuilder1/SDFBox2\n// https://iquilezles.org/www/articles/distfunctions/distfunctions.htm\n\nfloat sdSphere( vec3 p, float s )\n{\n\treturn length(p)-s;\n}\n\nfloat sdBox( vec3 p, vec3 b )\n{\n\tvec3 q = abs(p) - b;\n\treturn length(max(q,0.0)) + min(max(q.x,max(q.y,q.z)),0.0);\n}\n\n\nfloat opUnion( float d1, float d2 ) { return min(d1,d2); }\nfloat opSubtraction( float d1, float d2 ) { return max(-d1,d2); }\nfloat opIntersection( float d1, float d2 ) { return max(d1,d2); }\n\nfloat opSmoothUnion( float d1, float d2, float k ) {\n\tfloat h = clamp( 0.5 + 0.5*(d2-d1)/k, 0.0, 1.0 );\n\treturn mix( d2, d1, h ) - k*h*(1.0-h);\n}\n\nfloat opSmoothSubtraction( float d1, float d2, float k ) {\n\tfloat h = clamp( 0.5 - 0.5*(d2+d1)/k, 0.0, 1.0 );\n\treturn mix( d2, -d1, h ) + k*h*(1.0-h);\n}\n\nfloat opSmoothIntersection( float d1, float d2, float k ) {\n\tfloat h = clamp( 0.5 - 0.5*(d2-d1)/k, 0.0, 1.0 );\n\treturn mix( d2, d1, h ) + k*h*(1.0-h);\n}\n\n// /bg/MAT/meshStandardBuilder1/fit1\n//\n//\n// FIT\n//\n//\nfloat fit(float val, float srcMin, float srcMax, float destMin, float destMax){\n\tfloat src_range = srcMax - srcMin;\n\tfloat dest_range = destMax - destMin;\n\n\tfloat r = (val - srcMin) / src_range;\n\treturn (r * dest_range) + destMin;\n}\nvec2 fit(vec2 val, vec2 srcMin, vec2 srcMax, vec2 destMin, vec2 destMax){\n\treturn vec2(\n\t\tfit(val.x, srcMin.x, srcMax.x, destMin.x, destMax.x),\n\t\tfit(val.y, srcMin.y, srcMax.y, destMin.y, destMax.y)\n\t);\n}\nvec3 fit(vec3 val, vec3 srcMin, vec3 srcMax, vec3 destMin, vec3 destMax){\n\treturn vec3(\n\t\tfit(val.x, srcMin.x, srcMax.x, destMin.x, destMax.x),\n\t\tfit(val.y, srcMin.y, srcMax.y, destMin.y, destMax.y),\n\t\tfit(val.z, srcMin.z, srcMax.z, destMin.z, destMax.z)\n\t);\n}\nvec4 fit(vec4 val, vec4 srcMin, vec4 srcMax, vec4 destMin, vec4 destMax){\n\treturn vec4(\n\t\tfit(val.x, srcMin.x, srcMax.x, destMin.x, destMax.x),\n\t\tfit(val.y, srcMin.y, srcMax.y, destMin.y, destMax.y),\n\t\tfit(val.z, srcMin.z, srcMax.z, destMin.z, destMax.z),\n\t\tfit(val.w, srcMin.w, srcMax.w, destMin.w, destMax.w)\n\t);\n}\n\n//\n//\n// FIT TO 01\n// fits the range [srcMin, srcMax] to [0, 1]\n//\nfloat fitTo01(float val, float srcMin, float srcMax){\n\tfloat size = srcMax - srcMin;\n\treturn (val - srcMin) / size;\n}\nvec2 fitTo01(vec2 val, vec2 srcMin, vec2 srcMax){\n\treturn vec2(\n\t\tfitTo01(val.x, srcMin.x, srcMax.x),\n\t\tfitTo01(val.y, srcMin.y, srcMax.y)\n\t);\n}\nvec3 fitTo01(vec3 val, vec3 srcMin, vec3 srcMax){\n\treturn vec3(\n\t\tfitTo01(val.x, srcMin.x, srcMax.x),\n\t\tfitTo01(val.y, srcMin.y, srcMax.y),\n\t\tfitTo01(val.z, srcMin.z, srcMax.z)\n\t);\n}\nvec4 fitTo01(vec4 val, vec4 srcMin, vec4 srcMax){\n\treturn vec4(\n\t\tfitTo01(val.x, srcMin.x, srcMax.x),\n\t\tfitTo01(val.y, srcMin.y, srcMax.y),\n\t\tfitTo01(val.z, srcMin.z, srcMax.z),\n\t\tfitTo01(val.w, srcMin.w, srcMax.w)\n\t);\n}\n\n//\n//\n// FIT FROM 01\n// fits the range [0, 1] to [destMin, destMax]\n//\nfloat fitFrom01(float val, float destMin, float destMax){\n\treturn fit(val, 0.0, 1.0, destMin, destMax);\n}\nvec2 fitFrom01(vec2 val, vec2 srcMin, vec2 srcMax){\n\treturn vec2(\n\t\tfitFrom01(val.x, srcMin.x, srcMax.x),\n\t\tfitFrom01(val.y, srcMin.y, srcMax.y)\n\t);\n}\nvec3 fitFrom01(vec3 val, vec3 srcMin, vec3 srcMax){\n\treturn vec3(\n\t\tfitFrom01(val.x, srcMin.x, srcMax.x),\n\t\tfitFrom01(val.y, srcMin.y, srcMax.y),\n\t\tfitFrom01(val.z, srcMin.z, srcMax.z)\n\t);\n}\nvec4 fitFrom01(vec4 val, vec4 srcMin, vec4 srcMax){\n\treturn vec4(\n\t\tfitFrom01(val.x, srcMin.x, srcMax.x),\n\t\tfitFrom01(val.y, srcMin.y, srcMax.y),\n\t\tfitFrom01(val.z, srcMin.z, srcMax.z),\n\t\tfitFrom01(val.w, srcMin.w, srcMax.w)\n\t);\n}\n\n//\n//\n// FIT FROM 01 TO VARIANCE\n// fits the range [0, 1] to [center - variance, center + variance]\n//\nfloat fitFrom01ToVariance(float val, float center, float variance){\n\treturn fitFrom01(val, center - variance, center + variance);\n}\nvec2 fitFrom01ToVariance(vec2 val, vec2 center, vec2 variance){\n\treturn vec2(\n\t\tfitFrom01ToVariance(val.x, center.x, variance.x),\n\t\tfitFrom01ToVariance(val.y, center.y, variance.y)\n\t);\n}\nvec3 fitFrom01ToVariance(vec3 val, vec3 center, vec3 variance){\n\treturn vec3(\n\t\tfitFrom01ToVariance(val.x, center.x, variance.x),\n\t\tfitFrom01ToVariance(val.y, center.y, variance.y),\n\t\tfitFrom01ToVariance(val.z, center.z, variance.z)\n\t);\n}\nvec4 fitFrom01ToVariance(vec4 val, vec4 center, vec4 variance){\n\treturn vec4(\n\t\tfitFrom01ToVariance(val.x, center.x, variance.x),\n\t\tfitFrom01ToVariance(val.y, center.y, variance.y),\n\t\tfitFrom01ToVariance(val.z, center.z, variance.z),\n\t\tfitFrom01ToVariance(val.w, center.w, variance.w)\n\t);\n}\n\n// /bg/MAT/meshStandardBuilder1/complement3\nfloat complement(float x){return 1.0-x;}\nvec2 complement(vec2 x){return vec2(1.0-x.x, 1.0-x.y);}\nvec3 complement(vec3 x){return vec3(1.0-x.x, 1.0-x.y, 1.0-x.z);}\nvec4 complement(vec4 x){return vec4(1.0-x.x, 1.0-x.y, 1.0-x.z, 1.0-x.w);}\n\n\n\n\n\n\n\n\n// /bg/MAT/meshStandardBuilder1/param1\nuniform vec3 v_POLY_param_blobPos;\n\n// /bg/MAT/meshStandardBuilder1/globals1\nvarying vec3 v_POLY_globals1_position;\n\n\n\n\n#include <packing>\n#include <uv_pars_fragment>\n#include <map_pars_fragment>\n#include <alphamap_pars_fragment>\n#include <alphatest_pars_fragment>\n#include <logdepthbuf_pars_fragment>\n#include <clipping_planes_pars_fragment>\n\nvarying vec2 vHighPrecisionZW;\n\nstruct SSSModel {\n\tbool isActive;\n\tvec3 color;\n\tfloat thickness;\n\tfloat power;\n\tfloat scale;\n\tfloat distortion;\n\tfloat ambient;\n\tfloat attenuation;\n};\n\nvoid RE_Direct_Scattering(\n\tconst in IncidentLight directLight,\n\tconst in GeometricContext geometry,\n\tconst in SSSModel sssModel,\n\tinout ReflectedLight reflectedLight\n\t){\n\tvec3 scatteringHalf = normalize(directLight.direction + (geometry.normal * sssModel.distortion));\n\tfloat scatteringDot = pow(saturate(dot(geometry.viewDir, -scatteringHalf)), sssModel.power) * sssModel.scale;\n\tvec3 scatteringIllu = (scatteringDot + sssModel.ambient) * (sssModel.color * (1.0-sssModel.thickness));\n\treflectedLight.directDiffuse += scatteringIllu * sssModel.attenuation * directLight.color;\n}\n\nvoid main() {\n\n\t#include <clipping_planes_fragment>\n\n\tvec4 diffuseColor = vec4( 1.0 );\n\n\t#if DEPTH_PACKING == 3200\n\n\t\tdiffuseColor.a = opacity;\n\n\t#endif\n\n\n\t#include <map_fragment>\n\t#include <alphamap_fragment>\n\n\n\n\t// /bg/MAT/meshStandardBuilder1/constant4\n\tvec3 v_POLY_constant4_val = vec3(0.08235294117647059, 0.043137254901960784, 0.615686274509804);\n\t\n\t// /bg/MAT/meshStandardBuilder1/constant1\n\tvec3 v_POLY_constant1_val = vec3(0.8431372549019608, 0.09803921568627451, 0.09803921568627451);\n\t\n\t// /bg/MAT/meshStandardBuilder1/param1\n\tvec3 v_POLY_param1_val = v_POLY_param_blobPos;\n\t\n\t// /bg/MAT/meshStandardBuilder1/constant3\n\tfloat v_POLY_constant3_val = 14.0;\n\t\n\t// /bg/MAT/meshStandardBuilder1/constant2\n\tvec3 v_POLY_constant2_val = vec3(1.0, 1.0, 1.0);\n\t\n\t// /bg/MAT/meshStandardBuilder1/rgbToOklab3\n\tvec3 v_POLY_rgbToOklab3_oklab = oklab_from_linear_srgb(v_POLY_constant4_val);\n\t\n\t// /bg/MAT/meshStandardBuilder1/rgbToOklab1\n\tvec3 v_POLY_rgbToOklab1_oklab = oklab_from_linear_srgb(v_POLY_constant1_val);\n\t\n\t// /bg/MAT/meshStandardBuilder1/SDFBox2\n\tfloat v_POLY_SDFBox2_float = sdBox(v_POLY_globals1_position - vec3(0.0, 0.0, 0.0), vec3(0.42, 0.42, 0.42));\n\t\n\t// /bg/MAT/meshStandardBuilder1/vec3ToFloat1\n\tfloat v_POLY_vec3ToFloat1_x = v_POLY_param1_val.x;\n\tfloat v_POLY_vec3ToFloat1_y = v_POLY_param1_val.y;\n\t\n\t// /bg/MAT/meshStandardBuilder1/multAdd1\n\tfloat v_POLY_multAdd1_val = (1.0*(v_POLY_vec3ToFloat1_y + -0.5)) + 0.0;\n\t\n\t// /bg/MAT/meshStandardBuilder1/floatToVec3_1\n\tvec3 v_POLY_floatToVec3_1_vec3 = vec3(v_POLY_vec3ToFloat1_x, v_POLY_multAdd1_val, 0.0);\n\t\n\t// /bg/MAT/meshStandardBuilder1/SDFSphere1\n\tfloat v_POLY_SDFSphere1_float = sdSphere(v_POLY_globals1_position - v_POLY_floatToVec3_1_vec3, 0.32999999999999996);\n\t\n\t// /bg/MAT/meshStandardBuilder1/SDFUnion1\n\tfloat v_POLY_SDFUnion1_union = opSmoothUnion(v_POLY_SDFSphere1_float, v_POLY_SDFBox2_float, 0.26);\n\t\n\t// /bg/MAT/meshStandardBuilder1/null1\n\tfloat v_POLY_null1_val = v_POLY_SDFUnion1_union;\n\t\n\t// /bg/MAT/meshStandardBuilder1/fit1\n\tfloat v_POLY_fit1_val = fit(v_POLY_null1_val, 0.0, 1.0, 0.0, 0.9);\n\t\n\t// /bg/MAT/meshStandardBuilder1/multAdd5\n\tfloat v_POLY_multAdd5_val = (1.0*(v_POLY_null1_val + -0.2)) + 0.0;\n\t\n\t// /bg/MAT/meshStandardBuilder1/complement3\n\tfloat v_POLY_complement3_val = complement(v_POLY_fit1_val);\n\t\n\t// /bg/MAT/meshStandardBuilder1/smoothstep4\n\tfloat v_POLY_smoothstep4_val = smoothstep(0.0, 0.01, v_POLY_multAdd5_val);\n\t\n\t// /bg/MAT/meshStandardBuilder1/mult3\n\tfloat v_POLY_mult3_product = (v_POLY_complement3_val * v_POLY_constant3_val * 1.0);\n\t\n\t// /bg/MAT/meshStandardBuilder1/round1\n\tfloat v_POLY_round1_val = sign(v_POLY_mult3_product)*floor(abs(v_POLY_mult3_product)+0.5);\n\t\n\t// /bg/MAT/meshStandardBuilder1/divide1\n\tfloat v_POLY_divide1_divide = (v_POLY_round1_val / v_POLY_constant3_val / 1.0);\n\t\n\t// /bg/MAT/meshStandardBuilder1/mix4\n\tvec3 v_POLY_mix4_mix = mix(v_POLY_rgbToOklab3_oklab, v_POLY_rgbToOklab1_oklab, v_POLY_divide1_divide);\n\t\n\t// /bg/MAT/meshStandardBuilder1/oklabToRgb1\n\tvec3 v_POLY_oklabToRgb1_rgb = linear_srgb_from_oklab(v_POLY_mix4_mix);\n\t\n\t// /bg/MAT/meshStandardBuilder1/mix1\n\tvec3 v_POLY_mix1_mix = mix(v_POLY_oklabToRgb1_rgb, v_POLY_constant2_val, v_POLY_smoothstep4_val);\n\t\n\t// /bg/MAT/meshStandardBuilder1/output1\n\tdiffuseColor.xyz = v_POLY_mix1_mix;\n\tfloat POLY_metalness = 1.0;\n\tfloat POLY_roughness = 1.0;\n\tvec3 POLY_emissive = vec3(1.0, 1.0, 1.0);\n\tSSSModel POLY_SSSModel = SSSModel(/*isActive*/false,/*color*/vec3(1.0, 1.0, 1.0), /*thickness*/0.1, /*power*/2.0, /*scale*/16.0, /*distortion*/0.1,/*ambient*/0.4,/*attenuation*/0.8 );\n\n\n\n\n\t// INSERT BODY\n\t// the new body lines should be added before the alphatest_fragment\n\t// so that alpha is set before (which is really how it would be set if the alphamap_fragment above was used by the material node parameters)\n\n\t#include <alphatest_fragment>\n\n\t#include <logdepthbuf_fragment>\n\n\n\t// Higher precision equivalent of gl_FragCoord.z. This assumes depthRange has been left to its default values.\n\tfloat fragCoordZ = 0.5 * vHighPrecisionZW[0] / vHighPrecisionZW[1] + 0.5;\n\n\t#if DEPTH_PACKING == 3200\n\n\t\tgl_FragColor = vec4( vec3( 1.0 - fragCoordZ ), diffuseColor.a );\n\n\t#elif DEPTH_PACKING == 3201\n\n\t\tgl_FragColor = packDepthToRGBA( fragCoordZ );\n\n\t#endif\n\n}\n",
+					"timeDependent": false,
+					"resolutionDependent": false,
+					"paramConfigs": [
+						{
+							"type": "vector3",
+							"name": "blobPos",
+							"defaultValue": [
+								0,
+								0,
+								0
+							],
+							"uniformName": "v_POLY_param_blobPos"
+						}
+					]
+				}
+			},
+			"customDistanceMaterial": {
+				"material": {
+					"metadata": {
+						"version": 4.5,
+						"type": "Material",
+						"generator": "Material.toJSON"
+					},
+					"uuid": "/bg/MAT/meshStandardBuilder1-customDistanceMaterial",
+					"type": "MeshDistanceMaterial",
+					"name": "customDistanceMaterial",
+					"depthFunc": 3,
+					"depthTest": true,
+					"depthWrite": true,
+					"colorWrite": true,
+					"stencilWrite": false,
+					"stencilWriteMask": 255,
+					"stencilFunc": 519,
+					"stencilRef": 0,
+					"stencilFuncMask": 255,
+					"stencilFail": 7680,
+					"stencilZFail": 7680,
+					"stencilZPass": 7680
+				},
+				"onBeforeCompileDataJSON": {
+					"vertexShader": "#define DISTANCE\nvarying vec3 vWorldPosition;\n#include <common>\n\n\n\n// /bg/MAT/meshStandardBuilder1/globals1\nvarying vec3 v_POLY_globals1_position;\n\n\n\n\n#include <uv_pars_vertex>\n#include <displacementmap_pars_vertex>\n#include <morphtarget_pars_vertex>\n#include <skinning_pars_vertex>\n#include <clipping_planes_pars_vertex>\nvoid main() {\n\t#include <uv_vertex>\n\t#include <skinbase_vertex>\n\t#ifdef USE_DISPLACEMENTMAP\n// removed:\n//\t\t#include <beginnormal_vertex>\n\t\t#include <morphnormal_vertex>\n\t\t#include <skinnormal_vertex>\n\t#endif\n// removed:\n//\t#include <begin_vertex>\n\n\n\n\t// /bg/MAT/meshStandardBuilder1/globals1\n\tv_POLY_globals1_position = vec3(position);\n\t\n\t// /bg/MAT/meshStandardBuilder1/output1\n\tvec3 transformed = position;\n\tvec3 objectNormal = normal;\n\t#ifdef USE_TANGENT\n\t\tvec3 objectTangent = vec3( tangent.xyz );\n\t#endif\n\n\n\n\t#include <morphtarget_vertex>\n\t#include <skinning_vertex>\n\t#include <displacementmap_vertex>\n\t#include <project_vertex>\n\t#include <worldpos_vertex>\n\t#include <clipping_planes_vertex>\n\tvWorldPosition = worldPosition.xyz;\n}",
+					"fragmentShader": "\n// INSERT DEFINES\n\n#define DISTANCE\n\nuniform vec3 referencePosition;\nuniform float nearDistance;\nuniform float farDistance;\nvarying vec3 vWorldPosition;\n\n#include <common>\n\n\n\n// /bg/MAT/meshStandardBuilder1/rgbToOklab3\n//////////////////////////////////////////////////////////////////////\n//\n// Visualizing Björn Ottosson's \"oklab\" colorspace\n//\n// shadertoy implementation by mattz\n//\n// license CC0 (public domain)\n// https://creativecommons.org/share-your-work/public-domain/cc0/\n//\n// Click and drag to set lightness (mouse x) and chroma (mouse y).\n// Hue varies linearly across the image from left to right.\n//\n// While mouse is down, plotted curves show oklab components\n// L (red), a (green), and b (blue). \n//\n// To test the inverse mapping, the plotted curves are generated\n// by mapping the (pre-clipping) linear RGB color back to oklab \n// space.\n//\n// White bars on top of the image (and black bars on the bottom of\n// the image) indicate clipping when one or more of the R, G, B \n// components are greater than 1.0 (or less than 0.0 respectively).\n//\n// The color accompanying the black/white bar shows which channels\n// are out of gamut.\n//\n// Click in the bottom left to reset the view.\n//\n// Hit the 'G' key to toggle displaying a gamut test:\n//\n//   * black pixels indicate that RGB values for some hues\n//     were clipped to 0 at the given lightness/chroma pair.\n//\n//   * white pixels indicate that RGB values for some hues\n//     were clipped to 1 at the given lightness/chroma pair\n//\n//   * gray pixels indicate that both types of clipping happened\n//\n// Hit the 'U' key to display a uniform sampling of linear sRGB \n// space, converted into oklab lightness (x position) and chroma\n// (y position) coordinates. If you mouse over a colored dot, the\n// spectrum on screen should include that exact color.\n//\n//////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////\n// sRGB color transform and inverse from \n// https://bottosson.github.io/posts/colorwrong/#what-can-we-do%3F\n\nvec3 srgb_from_linear_srgb(vec3 x) {\n\n    vec3 xlo = 12.92*x;\n    vec3 xhi = 1.055 * pow(x, vec3(0.4166666666666667)) - 0.055;\n    \n    return mix(xlo, xhi, step(vec3(0.0031308), x));\n\n}\n\nvec3 linear_srgb_from_srgb(vec3 x) {\n\n    vec3 xlo = x / 12.92;\n    vec3 xhi = pow((x + 0.055)/(1.055), vec3(2.4));\n    \n    return mix(xlo, xhi, step(vec3(0.04045), x));\n\n}\n\n//////////////////////////////////////////////////////////////////////\n// oklab transform and inverse from\n// https://bottosson.github.io/posts/oklab/\n\n\nconst mat3 fwdA = mat3(1.0, 1.0, 1.0,\n                       0.3963377774, -0.1055613458, -0.0894841775,\n                       0.2158037573, -0.0638541728, -1.2914855480);\n                       \nconst mat3 fwdB = mat3(4.0767245293, -1.2681437731, -0.0041119885,\n                       -3.3072168827, 2.6093323231, -0.7034763098,\n                       0.2307590544, -0.3411344290,  1.7068625689);\n\nconst mat3 invB = mat3(0.4121656120, 0.2118591070, 0.0883097947,\n                       0.5362752080, 0.6807189584, 0.2818474174,\n                       0.0514575653, 0.1074065790, 0.6302613616);\n                       \nconst mat3 invA = mat3(0.2104542553, 1.9779984951, 0.0259040371,\n                       0.7936177850, -2.4285922050, 0.7827717662,\n                       -0.0040720468, 0.4505937099, -0.8086757660);\n\nvec3 oklab_from_linear_srgb(vec3 c) {\n\n    vec3 lms = invB * c;\n            \n    return invA * (sign(lms)*pow(abs(lms), vec3(0.3333333333333)));\n    \n}\n\nvec3 linear_srgb_from_oklab(vec3 c) {\n\n    vec3 lms = fwdA * c;\n    \n    return fwdB * (lms * lms * lms);\n    \n}\n\n\n// https://www.shadertoy.com/view/WtccD7\nconst float max_chroma = 0.33;\nvec3 uvToOklab(vec3 uvw){\n\n    // setup oklab color\n    float theta = 2.*3.141592653589793*uvw.x;\n    \n    float L = 0.8;\n    float chroma = 0.1;\n    \n    //if (max(iMouse.x, iMouse.y) > 0.05 * iResolution.y) {\n        L = uvw.y;//iMouse.x / iResolution.x;\n        chroma = uvw.z * max_chroma;// / iResolution.y;\n    //}\n    \n    float a = chroma*cos(theta);\n    float b = chroma*sin(theta);\n    \n    vec3 lab = vec3(L, a, b);\n\treturn lab;\n\n    // convert to rgb \n    // vec3 rgb = linear_srgb_from_oklab(lab);\n\n}\n\n// /bg/MAT/meshStandardBuilder1/SDFBox2\n// https://iquilezles.org/www/articles/distfunctions/distfunctions.htm\n\nfloat sdSphere( vec3 p, float s )\n{\n\treturn length(p)-s;\n}\n\nfloat sdBox( vec3 p, vec3 b )\n{\n\tvec3 q = abs(p) - b;\n\treturn length(max(q,0.0)) + min(max(q.x,max(q.y,q.z)),0.0);\n}\n\n\nfloat opUnion( float d1, float d2 ) { return min(d1,d2); }\nfloat opSubtraction( float d1, float d2 ) { return max(-d1,d2); }\nfloat opIntersection( float d1, float d2 ) { return max(d1,d2); }\n\nfloat opSmoothUnion( float d1, float d2, float k ) {\n\tfloat h = clamp( 0.5 + 0.5*(d2-d1)/k, 0.0, 1.0 );\n\treturn mix( d2, d1, h ) - k*h*(1.0-h);\n}\n\nfloat opSmoothSubtraction( float d1, float d2, float k ) {\n\tfloat h = clamp( 0.5 - 0.5*(d2+d1)/k, 0.0, 1.0 );\n\treturn mix( d2, -d1, h ) + k*h*(1.0-h);\n}\n\nfloat opSmoothIntersection( float d1, float d2, float k ) {\n\tfloat h = clamp( 0.5 - 0.5*(d2-d1)/k, 0.0, 1.0 );\n\treturn mix( d2, d1, h ) + k*h*(1.0-h);\n}\n\n// /bg/MAT/meshStandardBuilder1/fit1\n//\n//\n// FIT\n//\n//\nfloat fit(float val, float srcMin, float srcMax, float destMin, float destMax){\n\tfloat src_range = srcMax - srcMin;\n\tfloat dest_range = destMax - destMin;\n\n\tfloat r = (val - srcMin) / src_range;\n\treturn (r * dest_range) + destMin;\n}\nvec2 fit(vec2 val, vec2 srcMin, vec2 srcMax, vec2 destMin, vec2 destMax){\n\treturn vec2(\n\t\tfit(val.x, srcMin.x, srcMax.x, destMin.x, destMax.x),\n\t\tfit(val.y, srcMin.y, srcMax.y, destMin.y, destMax.y)\n\t);\n}\nvec3 fit(vec3 val, vec3 srcMin, vec3 srcMax, vec3 destMin, vec3 destMax){\n\treturn vec3(\n\t\tfit(val.x, srcMin.x, srcMax.x, destMin.x, destMax.x),\n\t\tfit(val.y, srcMin.y, srcMax.y, destMin.y, destMax.y),\n\t\tfit(val.z, srcMin.z, srcMax.z, destMin.z, destMax.z)\n\t);\n}\nvec4 fit(vec4 val, vec4 srcMin, vec4 srcMax, vec4 destMin, vec4 destMax){\n\treturn vec4(\n\t\tfit(val.x, srcMin.x, srcMax.x, destMin.x, destMax.x),\n\t\tfit(val.y, srcMin.y, srcMax.y, destMin.y, destMax.y),\n\t\tfit(val.z, srcMin.z, srcMax.z, destMin.z, destMax.z),\n\t\tfit(val.w, srcMin.w, srcMax.w, destMin.w, destMax.w)\n\t);\n}\n\n//\n//\n// FIT TO 01\n// fits the range [srcMin, srcMax] to [0, 1]\n//\nfloat fitTo01(float val, float srcMin, float srcMax){\n\tfloat size = srcMax - srcMin;\n\treturn (val - srcMin) / size;\n}\nvec2 fitTo01(vec2 val, vec2 srcMin, vec2 srcMax){\n\treturn vec2(\n\t\tfitTo01(val.x, srcMin.x, srcMax.x),\n\t\tfitTo01(val.y, srcMin.y, srcMax.y)\n\t);\n}\nvec3 fitTo01(vec3 val, vec3 srcMin, vec3 srcMax){\n\treturn vec3(\n\t\tfitTo01(val.x, srcMin.x, srcMax.x),\n\t\tfitTo01(val.y, srcMin.y, srcMax.y),\n\t\tfitTo01(val.z, srcMin.z, srcMax.z)\n\t);\n}\nvec4 fitTo01(vec4 val, vec4 srcMin, vec4 srcMax){\n\treturn vec4(\n\t\tfitTo01(val.x, srcMin.x, srcMax.x),\n\t\tfitTo01(val.y, srcMin.y, srcMax.y),\n\t\tfitTo01(val.z, srcMin.z, srcMax.z),\n\t\tfitTo01(val.w, srcMin.w, srcMax.w)\n\t);\n}\n\n//\n//\n// FIT FROM 01\n// fits the range [0, 1] to [destMin, destMax]\n//\nfloat fitFrom01(float val, float destMin, float destMax){\n\treturn fit(val, 0.0, 1.0, destMin, destMax);\n}\nvec2 fitFrom01(vec2 val, vec2 srcMin, vec2 srcMax){\n\treturn vec2(\n\t\tfitFrom01(val.x, srcMin.x, srcMax.x),\n\t\tfitFrom01(val.y, srcMin.y, srcMax.y)\n\t);\n}\nvec3 fitFrom01(vec3 val, vec3 srcMin, vec3 srcMax){\n\treturn vec3(\n\t\tfitFrom01(val.x, srcMin.x, srcMax.x),\n\t\tfitFrom01(val.y, srcMin.y, srcMax.y),\n\t\tfitFrom01(val.z, srcMin.z, srcMax.z)\n\t);\n}\nvec4 fitFrom01(vec4 val, vec4 srcMin, vec4 srcMax){\n\treturn vec4(\n\t\tfitFrom01(val.x, srcMin.x, srcMax.x),\n\t\tfitFrom01(val.y, srcMin.y, srcMax.y),\n\t\tfitFrom01(val.z, srcMin.z, srcMax.z),\n\t\tfitFrom01(val.w, srcMin.w, srcMax.w)\n\t);\n}\n\n//\n//\n// FIT FROM 01 TO VARIANCE\n// fits the range [0, 1] to [center - variance, center + variance]\n//\nfloat fitFrom01ToVariance(float val, float center, float variance){\n\treturn fitFrom01(val, center - variance, center + variance);\n}\nvec2 fitFrom01ToVariance(vec2 val, vec2 center, vec2 variance){\n\treturn vec2(\n\t\tfitFrom01ToVariance(val.x, center.x, variance.x),\n\t\tfitFrom01ToVariance(val.y, center.y, variance.y)\n\t);\n}\nvec3 fitFrom01ToVariance(vec3 val, vec3 center, vec3 variance){\n\treturn vec3(\n\t\tfitFrom01ToVariance(val.x, center.x, variance.x),\n\t\tfitFrom01ToVariance(val.y, center.y, variance.y),\n\t\tfitFrom01ToVariance(val.z, center.z, variance.z)\n\t);\n}\nvec4 fitFrom01ToVariance(vec4 val, vec4 center, vec4 variance){\n\treturn vec4(\n\t\tfitFrom01ToVariance(val.x, center.x, variance.x),\n\t\tfitFrom01ToVariance(val.y, center.y, variance.y),\n\t\tfitFrom01ToVariance(val.z, center.z, variance.z),\n\t\tfitFrom01ToVariance(val.w, center.w, variance.w)\n\t);\n}\n\n// /bg/MAT/meshStandardBuilder1/complement3\nfloat complement(float x){return 1.0-x;}\nvec2 complement(vec2 x){return vec2(1.0-x.x, 1.0-x.y);}\nvec3 complement(vec3 x){return vec3(1.0-x.x, 1.0-x.y, 1.0-x.z);}\nvec4 complement(vec4 x){return vec4(1.0-x.x, 1.0-x.y, 1.0-x.z, 1.0-x.w);}\n\n\n\n\n\n\n\n\n// /bg/MAT/meshStandardBuilder1/param1\nuniform vec3 v_POLY_param_blobPos;\n\n// /bg/MAT/meshStandardBuilder1/globals1\nvarying vec3 v_POLY_globals1_position;\n\n\n\n\n#include <packing>\n#include <uv_pars_fragment>\n#include <map_pars_fragment>\n#include <alphamap_pars_fragment>\n#include <alphatest_pars_fragment>\n#include <clipping_planes_pars_fragment>\n\nstruct SSSModel {\n\tbool isActive;\n\tvec3 color;\n\tfloat thickness;\n\tfloat power;\n\tfloat scale;\n\tfloat distortion;\n\tfloat ambient;\n\tfloat attenuation;\n};\n\nvoid RE_Direct_Scattering(\n\tconst in IncidentLight directLight,\n\tconst in GeometricContext geometry,\n\tconst in SSSModel sssModel,\n\tinout ReflectedLight reflectedLight\n\t){\n\tvec3 scatteringHalf = normalize(directLight.direction + (geometry.normal * sssModel.distortion));\n\tfloat scatteringDot = pow(saturate(dot(geometry.viewDir, -scatteringHalf)), sssModel.power) * sssModel.scale;\n\tvec3 scatteringIllu = (scatteringDot + sssModel.ambient) * (sssModel.color * (1.0-sssModel.thickness));\n\treflectedLight.directDiffuse += scatteringIllu * sssModel.attenuation * directLight.color;\n}\n\nvoid main() {\n\n\t#include <clipping_planes_fragment>\n\n\tvec4 diffuseColor = vec4( 1.0 );\n\n\t#include <map_fragment>\n\t#include <alphamap_fragment>\n\n\n\n\t// /bg/MAT/meshStandardBuilder1/constant4\n\tvec3 v_POLY_constant4_val = vec3(0.08235294117647059, 0.043137254901960784, 0.615686274509804);\n\t\n\t// /bg/MAT/meshStandardBuilder1/constant1\n\tvec3 v_POLY_constant1_val = vec3(0.8431372549019608, 0.09803921568627451, 0.09803921568627451);\n\t\n\t// /bg/MAT/meshStandardBuilder1/param1\n\tvec3 v_POLY_param1_val = v_POLY_param_blobPos;\n\t\n\t// /bg/MAT/meshStandardBuilder1/constant3\n\tfloat v_POLY_constant3_val = 14.0;\n\t\n\t// /bg/MAT/meshStandardBuilder1/constant2\n\tvec3 v_POLY_constant2_val = vec3(1.0, 1.0, 1.0);\n\t\n\t// /bg/MAT/meshStandardBuilder1/rgbToOklab3\n\tvec3 v_POLY_rgbToOklab3_oklab = oklab_from_linear_srgb(v_POLY_constant4_val);\n\t\n\t// /bg/MAT/meshStandardBuilder1/rgbToOklab1\n\tvec3 v_POLY_rgbToOklab1_oklab = oklab_from_linear_srgb(v_POLY_constant1_val);\n\t\n\t// /bg/MAT/meshStandardBuilder1/SDFBox2\n\tfloat v_POLY_SDFBox2_float = sdBox(v_POLY_globals1_position - vec3(0.0, 0.0, 0.0), vec3(0.42, 0.42, 0.42));\n\t\n\t// /bg/MAT/meshStandardBuilder1/vec3ToFloat1\n\tfloat v_POLY_vec3ToFloat1_x = v_POLY_param1_val.x;\n\tfloat v_POLY_vec3ToFloat1_y = v_POLY_param1_val.y;\n\t\n\t// /bg/MAT/meshStandardBuilder1/multAdd1\n\tfloat v_POLY_multAdd1_val = (1.0*(v_POLY_vec3ToFloat1_y + -0.5)) + 0.0;\n\t\n\t// /bg/MAT/meshStandardBuilder1/floatToVec3_1\n\tvec3 v_POLY_floatToVec3_1_vec3 = vec3(v_POLY_vec3ToFloat1_x, v_POLY_multAdd1_val, 0.0);\n\t\n\t// /bg/MAT/meshStandardBuilder1/SDFSphere1\n\tfloat v_POLY_SDFSphere1_float = sdSphere(v_POLY_globals1_position - v_POLY_floatToVec3_1_vec3, 0.32999999999999996);\n\t\n\t// /bg/MAT/meshStandardBuilder1/SDFUnion1\n\tfloat v_POLY_SDFUnion1_union = opSmoothUnion(v_POLY_SDFSphere1_float, v_POLY_SDFBox2_float, 0.26);\n\t\n\t// /bg/MAT/meshStandardBuilder1/null1\n\tfloat v_POLY_null1_val = v_POLY_SDFUnion1_union;\n\t\n\t// /bg/MAT/meshStandardBuilder1/fit1\n\tfloat v_POLY_fit1_val = fit(v_POLY_null1_val, 0.0, 1.0, 0.0, 0.9);\n\t\n\t// /bg/MAT/meshStandardBuilder1/multAdd5\n\tfloat v_POLY_multAdd5_val = (1.0*(v_POLY_null1_val + -0.2)) + 0.0;\n\t\n\t// /bg/MAT/meshStandardBuilder1/complement3\n\tfloat v_POLY_complement3_val = complement(v_POLY_fit1_val);\n\t\n\t// /bg/MAT/meshStandardBuilder1/smoothstep4\n\tfloat v_POLY_smoothstep4_val = smoothstep(0.0, 0.01, v_POLY_multAdd5_val);\n\t\n\t// /bg/MAT/meshStandardBuilder1/mult3\n\tfloat v_POLY_mult3_product = (v_POLY_complement3_val * v_POLY_constant3_val * 1.0);\n\t\n\t// /bg/MAT/meshStandardBuilder1/round1\n\tfloat v_POLY_round1_val = sign(v_POLY_mult3_product)*floor(abs(v_POLY_mult3_product)+0.5);\n\t\n\t// /bg/MAT/meshStandardBuilder1/divide1\n\tfloat v_POLY_divide1_divide = (v_POLY_round1_val / v_POLY_constant3_val / 1.0);\n\t\n\t// /bg/MAT/meshStandardBuilder1/mix4\n\tvec3 v_POLY_mix4_mix = mix(v_POLY_rgbToOklab3_oklab, v_POLY_rgbToOklab1_oklab, v_POLY_divide1_divide);\n\t\n\t// /bg/MAT/meshStandardBuilder1/oklabToRgb1\n\tvec3 v_POLY_oklabToRgb1_rgb = linear_srgb_from_oklab(v_POLY_mix4_mix);\n\t\n\t// /bg/MAT/meshStandardBuilder1/mix1\n\tvec3 v_POLY_mix1_mix = mix(v_POLY_oklabToRgb1_rgb, v_POLY_constant2_val, v_POLY_smoothstep4_val);\n\t\n\t// /bg/MAT/meshStandardBuilder1/output1\n\tdiffuseColor.xyz = v_POLY_mix1_mix;\n\tfloat POLY_metalness = 1.0;\n\tfloat POLY_roughness = 1.0;\n\tvec3 POLY_emissive = vec3(1.0, 1.0, 1.0);\n\tSSSModel POLY_SSSModel = SSSModel(/*isActive*/false,/*color*/vec3(1.0, 1.0, 1.0), /*thickness*/0.1, /*power*/2.0, /*scale*/16.0, /*distortion*/0.1,/*ambient*/0.4,/*attenuation*/0.8 );\n\n\n\n\n\t// INSERT BODY\n\n\t#include <alphatest_fragment>\n\n\tfloat dist = length( vWorldPosition - referencePosition );\n\tdist = ( dist - nearDistance ) / ( farDistance - nearDistance );\n\tdist = saturate( dist ); // clamp to [ 0, 1 ]\n\n\tgl_FragColor = packDepthToRGBA( dist );\n\n}\n",
+					"timeDependent": false,
+					"resolutionDependent": false,
+					"paramConfigs": [
+						{
+							"type": "vector3",
+							"name": "blobPos",
+							"defaultValue": [
+								0,
+								0,
+								0
+							],
+							"uniformName": "v_POLY_param_blobPos"
+						}
+					]
+				}
+			},
+			"customDepthDOFMaterial": {
+				"material": {
+					"metadata": {
+						"version": 4.5,
+						"type": "Material",
+						"generator": "Material.toJSON"
+					},
+					"uuid": "/bg/MAT/meshStandardBuilder1-customDepthDOFMaterial",
+					"type": "MeshDepthMaterial",
+					"name": "customDepthDOFMaterial",
+					"depthFunc": 3,
+					"depthTest": true,
+					"depthWrite": true,
+					"colorWrite": true,
+					"stencilWrite": false,
+					"stencilWriteMask": 255,
+					"stencilFunc": 519,
+					"stencilRef": 0,
+					"stencilFuncMask": 255,
+					"stencilFail": 7680,
+					"stencilZFail": 7680,
+					"stencilZPass": 7680,
+					"depthPacking": 3200
+				},
+				"onBeforeCompileDataJSON": {
+					"vertexShader": "#include <common>\n\n\n\n// /bg/MAT/meshStandardBuilder1/globals1\nvarying vec3 v_POLY_globals1_position;\n\n\n\n\n#include <uv_pars_vertex>\n#include <displacementmap_pars_vertex>\n#include <morphtarget_pars_vertex>\n#include <skinning_pars_vertex>\n#include <logdepthbuf_pars_vertex>\n#include <clipping_planes_pars_vertex>\nvarying vec2 vHighPrecisionZW;\nvoid main() {\n\t#include <uv_vertex>\n\t#include <skinbase_vertex>\n\t#ifdef USE_DISPLACEMENTMAP\n// removed:\n//\t\t#include <beginnormal_vertex>\n\t\t#include <morphnormal_vertex>\n\t\t#include <skinnormal_vertex>\n\t#endif\n// removed:\n//\t#include <begin_vertex>\n\n\n\n\t// /bg/MAT/meshStandardBuilder1/globals1\n\tv_POLY_globals1_position = vec3(position);\n\t\n\t// /bg/MAT/meshStandardBuilder1/output1\n\tvec3 transformed = position;\n\tvec3 objectNormal = normal;\n\t#ifdef USE_TANGENT\n\t\tvec3 objectTangent = vec3( tangent.xyz );\n\t#endif\n\n\n\n\t#include <morphtarget_vertex>\n\t#include <skinning_vertex>\n\t#include <displacementmap_vertex>\n\t#include <project_vertex>\n\t#include <logdepthbuf_vertex>\n\t#include <clipping_planes_vertex>\n\tvHighPrecisionZW = gl_Position.zw;\n}",
+					"fragmentShader": "\n// INSERT DEFINES\n\n\n#if DEPTH_PACKING == 3200\n\n\tuniform float opacity;\n\n#endif\n\n#include <common>\n\n\n\n// /bg/MAT/meshStandardBuilder1/rgbToOklab3\n//////////////////////////////////////////////////////////////////////\n//\n// Visualizing Björn Ottosson's \"oklab\" colorspace\n//\n// shadertoy implementation by mattz\n//\n// license CC0 (public domain)\n// https://creativecommons.org/share-your-work/public-domain/cc0/\n//\n// Click and drag to set lightness (mouse x) and chroma (mouse y).\n// Hue varies linearly across the image from left to right.\n//\n// While mouse is down, plotted curves show oklab components\n// L (red), a (green), and b (blue). \n//\n// To test the inverse mapping, the plotted curves are generated\n// by mapping the (pre-clipping) linear RGB color back to oklab \n// space.\n//\n// White bars on top of the image (and black bars on the bottom of\n// the image) indicate clipping when one or more of the R, G, B \n// components are greater than 1.0 (or less than 0.0 respectively).\n//\n// The color accompanying the black/white bar shows which channels\n// are out of gamut.\n//\n// Click in the bottom left to reset the view.\n//\n// Hit the 'G' key to toggle displaying a gamut test:\n//\n//   * black pixels indicate that RGB values for some hues\n//     were clipped to 0 at the given lightness/chroma pair.\n//\n//   * white pixels indicate that RGB values for some hues\n//     were clipped to 1 at the given lightness/chroma pair\n//\n//   * gray pixels indicate that both types of clipping happened\n//\n// Hit the 'U' key to display a uniform sampling of linear sRGB \n// space, converted into oklab lightness (x position) and chroma\n// (y position) coordinates. If you mouse over a colored dot, the\n// spectrum on screen should include that exact color.\n//\n//////////////////////////////////////////////////////////////////////\n\n//////////////////////////////////////////////////////////////////////\n// sRGB color transform and inverse from \n// https://bottosson.github.io/posts/colorwrong/#what-can-we-do%3F\n\nvec3 srgb_from_linear_srgb(vec3 x) {\n\n    vec3 xlo = 12.92*x;\n    vec3 xhi = 1.055 * pow(x, vec3(0.4166666666666667)) - 0.055;\n    \n    return mix(xlo, xhi, step(vec3(0.0031308), x));\n\n}\n\nvec3 linear_srgb_from_srgb(vec3 x) {\n\n    vec3 xlo = x / 12.92;\n    vec3 xhi = pow((x + 0.055)/(1.055), vec3(2.4));\n    \n    return mix(xlo, xhi, step(vec3(0.04045), x));\n\n}\n\n//////////////////////////////////////////////////////////////////////\n// oklab transform and inverse from\n// https://bottosson.github.io/posts/oklab/\n\n\nconst mat3 fwdA = mat3(1.0, 1.0, 1.0,\n                       0.3963377774, -0.1055613458, -0.0894841775,\n                       0.2158037573, -0.0638541728, -1.2914855480);\n                       \nconst mat3 fwdB = mat3(4.0767245293, -1.2681437731, -0.0041119885,\n                       -3.3072168827, 2.6093323231, -0.7034763098,\n                       0.2307590544, -0.3411344290,  1.7068625689);\n\nconst mat3 invB = mat3(0.4121656120, 0.2118591070, 0.0883097947,\n                       0.5362752080, 0.6807189584, 0.2818474174,\n                       0.0514575653, 0.1074065790, 0.6302613616);\n                       \nconst mat3 invA = mat3(0.2104542553, 1.9779984951, 0.0259040371,\n                       0.7936177850, -2.4285922050, 0.7827717662,\n                       -0.0040720468, 0.4505937099, -0.8086757660);\n\nvec3 oklab_from_linear_srgb(vec3 c) {\n\n    vec3 lms = invB * c;\n            \n    return invA * (sign(lms)*pow(abs(lms), vec3(0.3333333333333)));\n    \n}\n\nvec3 linear_srgb_from_oklab(vec3 c) {\n\n    vec3 lms = fwdA * c;\n    \n    return fwdB * (lms * lms * lms);\n    \n}\n\n\n// https://www.shadertoy.com/view/WtccD7\nconst float max_chroma = 0.33;\nvec3 uvToOklab(vec3 uvw){\n\n    // setup oklab color\n    float theta = 2.*3.141592653589793*uvw.x;\n    \n    float L = 0.8;\n    float chroma = 0.1;\n    \n    //if (max(iMouse.x, iMouse.y) > 0.05 * iResolution.y) {\n        L = uvw.y;//iMouse.x / iResolution.x;\n        chroma = uvw.z * max_chroma;// / iResolution.y;\n    //}\n    \n    float a = chroma*cos(theta);\n    float b = chroma*sin(theta);\n    \n    vec3 lab = vec3(L, a, b);\n\treturn lab;\n\n    // convert to rgb \n    // vec3 rgb = linear_srgb_from_oklab(lab);\n\n}\n\n// /bg/MAT/meshStandardBuilder1/SDFBox2\n// https://iquilezles.org/www/articles/distfunctions/distfunctions.htm\n\nfloat sdSphere( vec3 p, float s )\n{\n\treturn length(p)-s;\n}\n\nfloat sdBox( vec3 p, vec3 b )\n{\n\tvec3 q = abs(p) - b;\n\treturn length(max(q,0.0)) + min(max(q.x,max(q.y,q.z)),0.0);\n}\n\n\nfloat opUnion( float d1, float d2 ) { return min(d1,d2); }\nfloat opSubtraction( float d1, float d2 ) { return max(-d1,d2); }\nfloat opIntersection( float d1, float d2 ) { return max(d1,d2); }\n\nfloat opSmoothUnion( float d1, float d2, float k ) {\n\tfloat h = clamp( 0.5 + 0.5*(d2-d1)/k, 0.0, 1.0 );\n\treturn mix( d2, d1, h ) - k*h*(1.0-h);\n}\n\nfloat opSmoothSubtraction( float d1, float d2, float k ) {\n\tfloat h = clamp( 0.5 - 0.5*(d2+d1)/k, 0.0, 1.0 );\n\treturn mix( d2, -d1, h ) + k*h*(1.0-h);\n}\n\nfloat opSmoothIntersection( float d1, float d2, float k ) {\n\tfloat h = clamp( 0.5 - 0.5*(d2-d1)/k, 0.0, 1.0 );\n\treturn mix( d2, d1, h ) + k*h*(1.0-h);\n}\n\n// /bg/MAT/meshStandardBuilder1/fit1\n//\n//\n// FIT\n//\n//\nfloat fit(float val, float srcMin, float srcMax, float destMin, float destMax){\n\tfloat src_range = srcMax - srcMin;\n\tfloat dest_range = destMax - destMin;\n\n\tfloat r = (val - srcMin) / src_range;\n\treturn (r * dest_range) + destMin;\n}\nvec2 fit(vec2 val, vec2 srcMin, vec2 srcMax, vec2 destMin, vec2 destMax){\n\treturn vec2(\n\t\tfit(val.x, srcMin.x, srcMax.x, destMin.x, destMax.x),\n\t\tfit(val.y, srcMin.y, srcMax.y, destMin.y, destMax.y)\n\t);\n}\nvec3 fit(vec3 val, vec3 srcMin, vec3 srcMax, vec3 destMin, vec3 destMax){\n\treturn vec3(\n\t\tfit(val.x, srcMin.x, srcMax.x, destMin.x, destMax.x),\n\t\tfit(val.y, srcMin.y, srcMax.y, destMin.y, destMax.y),\n\t\tfit(val.z, srcMin.z, srcMax.z, destMin.z, destMax.z)\n\t);\n}\nvec4 fit(vec4 val, vec4 srcMin, vec4 srcMax, vec4 destMin, vec4 destMax){\n\treturn vec4(\n\t\tfit(val.x, srcMin.x, srcMax.x, destMin.x, destMax.x),\n\t\tfit(val.y, srcMin.y, srcMax.y, destMin.y, destMax.y),\n\t\tfit(val.z, srcMin.z, srcMax.z, destMin.z, destMax.z),\n\t\tfit(val.w, srcMin.w, srcMax.w, destMin.w, destMax.w)\n\t);\n}\n\n//\n//\n// FIT TO 01\n// fits the range [srcMin, srcMax] to [0, 1]\n//\nfloat fitTo01(float val, float srcMin, float srcMax){\n\tfloat size = srcMax - srcMin;\n\treturn (val - srcMin) / size;\n}\nvec2 fitTo01(vec2 val, vec2 srcMin, vec2 srcMax){\n\treturn vec2(\n\t\tfitTo01(val.x, srcMin.x, srcMax.x),\n\t\tfitTo01(val.y, srcMin.y, srcMax.y)\n\t);\n}\nvec3 fitTo01(vec3 val, vec3 srcMin, vec3 srcMax){\n\treturn vec3(\n\t\tfitTo01(val.x, srcMin.x, srcMax.x),\n\t\tfitTo01(val.y, srcMin.y, srcMax.y),\n\t\tfitTo01(val.z, srcMin.z, srcMax.z)\n\t);\n}\nvec4 fitTo01(vec4 val, vec4 srcMin, vec4 srcMax){\n\treturn vec4(\n\t\tfitTo01(val.x, srcMin.x, srcMax.x),\n\t\tfitTo01(val.y, srcMin.y, srcMax.y),\n\t\tfitTo01(val.z, srcMin.z, srcMax.z),\n\t\tfitTo01(val.w, srcMin.w, srcMax.w)\n\t);\n}\n\n//\n//\n// FIT FROM 01\n// fits the range [0, 1] to [destMin, destMax]\n//\nfloat fitFrom01(float val, float destMin, float destMax){\n\treturn fit(val, 0.0, 1.0, destMin, destMax);\n}\nvec2 fitFrom01(vec2 val, vec2 srcMin, vec2 srcMax){\n\treturn vec2(\n\t\tfitFrom01(val.x, srcMin.x, srcMax.x),\n\t\tfitFrom01(val.y, srcMin.y, srcMax.y)\n\t);\n}\nvec3 fitFrom01(vec3 val, vec3 srcMin, vec3 srcMax){\n\treturn vec3(\n\t\tfitFrom01(val.x, srcMin.x, srcMax.x),\n\t\tfitFrom01(val.y, srcMin.y, srcMax.y),\n\t\tfitFrom01(val.z, srcMin.z, srcMax.z)\n\t);\n}\nvec4 fitFrom01(vec4 val, vec4 srcMin, vec4 srcMax){\n\treturn vec4(\n\t\tfitFrom01(val.x, srcMin.x, srcMax.x),\n\t\tfitFrom01(val.y, srcMin.y, srcMax.y),\n\t\tfitFrom01(val.z, srcMin.z, srcMax.z),\n\t\tfitFrom01(val.w, srcMin.w, srcMax.w)\n\t);\n}\n\n//\n//\n// FIT FROM 01 TO VARIANCE\n// fits the range [0, 1] to [center - variance, center + variance]\n//\nfloat fitFrom01ToVariance(float val, float center, float variance){\n\treturn fitFrom01(val, center - variance, center + variance);\n}\nvec2 fitFrom01ToVariance(vec2 val, vec2 center, vec2 variance){\n\treturn vec2(\n\t\tfitFrom01ToVariance(val.x, center.x, variance.x),\n\t\tfitFrom01ToVariance(val.y, center.y, variance.y)\n\t);\n}\nvec3 fitFrom01ToVariance(vec3 val, vec3 center, vec3 variance){\n\treturn vec3(\n\t\tfitFrom01ToVariance(val.x, center.x, variance.x),\n\t\tfitFrom01ToVariance(val.y, center.y, variance.y),\n\t\tfitFrom01ToVariance(val.z, center.z, variance.z)\n\t);\n}\nvec4 fitFrom01ToVariance(vec4 val, vec4 center, vec4 variance){\n\treturn vec4(\n\t\tfitFrom01ToVariance(val.x, center.x, variance.x),\n\t\tfitFrom01ToVariance(val.y, center.y, variance.y),\n\t\tfitFrom01ToVariance(val.z, center.z, variance.z),\n\t\tfitFrom01ToVariance(val.w, center.w, variance.w)\n\t);\n}\n\n// /bg/MAT/meshStandardBuilder1/complement3\nfloat complement(float x){return 1.0-x;}\nvec2 complement(vec2 x){return vec2(1.0-x.x, 1.0-x.y);}\nvec3 complement(vec3 x){return vec3(1.0-x.x, 1.0-x.y, 1.0-x.z);}\nvec4 complement(vec4 x){return vec4(1.0-x.x, 1.0-x.y, 1.0-x.z, 1.0-x.w);}\n\n\n\n\n\n\n\n\n// /bg/MAT/meshStandardBuilder1/param1\nuniform vec3 v_POLY_param_blobPos;\n\n// /bg/MAT/meshStandardBuilder1/globals1\nvarying vec3 v_POLY_globals1_position;\n\n\n\n\n#include <packing>\n#include <uv_pars_fragment>\n#include <map_pars_fragment>\n#include <alphamap_pars_fragment>\n#include <alphatest_pars_fragment>\n#include <logdepthbuf_pars_fragment>\n#include <clipping_planes_pars_fragment>\n\nvarying vec2 vHighPrecisionZW;\n\nstruct SSSModel {\n\tbool isActive;\n\tvec3 color;\n\tfloat thickness;\n\tfloat power;\n\tfloat scale;\n\tfloat distortion;\n\tfloat ambient;\n\tfloat attenuation;\n};\n\nvoid RE_Direct_Scattering(\n\tconst in IncidentLight directLight,\n\tconst in GeometricContext geometry,\n\tconst in SSSModel sssModel,\n\tinout ReflectedLight reflectedLight\n\t){\n\tvec3 scatteringHalf = normalize(directLight.direction + (geometry.normal * sssModel.distortion));\n\tfloat scatteringDot = pow(saturate(dot(geometry.viewDir, -scatteringHalf)), sssModel.power) * sssModel.scale;\n\tvec3 scatteringIllu = (scatteringDot + sssModel.ambient) * (sssModel.color * (1.0-sssModel.thickness));\n\treflectedLight.directDiffuse += scatteringIllu * sssModel.attenuation * directLight.color;\n}\n\nvoid main() {\n\n\t#include <clipping_planes_fragment>\n\n\tvec4 diffuseColor = vec4( 1.0 );\n\n\t#if DEPTH_PACKING == 3200\n\n\t\tdiffuseColor.a = opacity;\n\n\t#endif\n\n\n\t#include <map_fragment>\n\t#include <alphamap_fragment>\n\n\n\n\t// /bg/MAT/meshStandardBuilder1/constant4\n\tvec3 v_POLY_constant4_val = vec3(0.08235294117647059, 0.043137254901960784, 0.615686274509804);\n\t\n\t// /bg/MAT/meshStandardBuilder1/constant1\n\tvec3 v_POLY_constant1_val = vec3(0.8431372549019608, 0.09803921568627451, 0.09803921568627451);\n\t\n\t// /bg/MAT/meshStandardBuilder1/param1\n\tvec3 v_POLY_param1_val = v_POLY_param_blobPos;\n\t\n\t// /bg/MAT/meshStandardBuilder1/constant3\n\tfloat v_POLY_constant3_val = 14.0;\n\t\n\t// /bg/MAT/meshStandardBuilder1/constant2\n\tvec3 v_POLY_constant2_val = vec3(1.0, 1.0, 1.0);\n\t\n\t// /bg/MAT/meshStandardBuilder1/rgbToOklab3\n\tvec3 v_POLY_rgbToOklab3_oklab = oklab_from_linear_srgb(v_POLY_constant4_val);\n\t\n\t// /bg/MAT/meshStandardBuilder1/rgbToOklab1\n\tvec3 v_POLY_rgbToOklab1_oklab = oklab_from_linear_srgb(v_POLY_constant1_val);\n\t\n\t// /bg/MAT/meshStandardBuilder1/SDFBox2\n\tfloat v_POLY_SDFBox2_float = sdBox(v_POLY_globals1_position - vec3(0.0, 0.0, 0.0), vec3(0.42, 0.42, 0.42));\n\t\n\t// /bg/MAT/meshStandardBuilder1/vec3ToFloat1\n\tfloat v_POLY_vec3ToFloat1_x = v_POLY_param1_val.x;\n\tfloat v_POLY_vec3ToFloat1_y = v_POLY_param1_val.y;\n\t\n\t// /bg/MAT/meshStandardBuilder1/multAdd1\n\tfloat v_POLY_multAdd1_val = (1.0*(v_POLY_vec3ToFloat1_y + -0.5)) + 0.0;\n\t\n\t// /bg/MAT/meshStandardBuilder1/floatToVec3_1\n\tvec3 v_POLY_floatToVec3_1_vec3 = vec3(v_POLY_vec3ToFloat1_x, v_POLY_multAdd1_val, 0.0);\n\t\n\t// /bg/MAT/meshStandardBuilder1/SDFSphere1\n\tfloat v_POLY_SDFSphere1_float = sdSphere(v_POLY_globals1_position - v_POLY_floatToVec3_1_vec3, 0.32999999999999996);\n\t\n\t// /bg/MAT/meshStandardBuilder1/SDFUnion1\n\tfloat v_POLY_SDFUnion1_union = opSmoothUnion(v_POLY_SDFSphere1_float, v_POLY_SDFBox2_float, 0.26);\n\t\n\t// /bg/MAT/meshStandardBuilder1/null1\n\tfloat v_POLY_null1_val = v_POLY_SDFUnion1_union;\n\t\n\t// /bg/MAT/meshStandardBuilder1/fit1\n\tfloat v_POLY_fit1_val = fit(v_POLY_null1_val, 0.0, 1.0, 0.0, 0.9);\n\t\n\t// /bg/MAT/meshStandardBuilder1/multAdd5\n\tfloat v_POLY_multAdd5_val = (1.0*(v_POLY_null1_val + -0.2)) + 0.0;\n\t\n\t// /bg/MAT/meshStandardBuilder1/complement3\n\tfloat v_POLY_complement3_val = complement(v_POLY_fit1_val);\n\t\n\t// /bg/MAT/meshStandardBuilder1/smoothstep4\n\tfloat v_POLY_smoothstep4_val = smoothstep(0.0, 0.01, v_POLY_multAdd5_val);\n\t\n\t// /bg/MAT/meshStandardBuilder1/mult3\n\tfloat v_POLY_mult3_product = (v_POLY_complement3_val * v_POLY_constant3_val * 1.0);\n\t\n\t// /bg/MAT/meshStandardBuilder1/round1\n\tfloat v_POLY_round1_val = sign(v_POLY_mult3_product)*floor(abs(v_POLY_mult3_product)+0.5);\n\t\n\t// /bg/MAT/meshStandardBuilder1/divide1\n\tfloat v_POLY_divide1_divide = (v_POLY_round1_val / v_POLY_constant3_val / 1.0);\n\t\n\t// /bg/MAT/meshStandardBuilder1/mix4\n\tvec3 v_POLY_mix4_mix = mix(v_POLY_rgbToOklab3_oklab, v_POLY_rgbToOklab1_oklab, v_POLY_divide1_divide);\n\t\n\t// /bg/MAT/meshStandardBuilder1/oklabToRgb1\n\tvec3 v_POLY_oklabToRgb1_rgb = linear_srgb_from_oklab(v_POLY_mix4_mix);\n\t\n\t// /bg/MAT/meshStandardBuilder1/mix1\n\tvec3 v_POLY_mix1_mix = mix(v_POLY_oklabToRgb1_rgb, v_POLY_constant2_val, v_POLY_smoothstep4_val);\n\t\n\t// /bg/MAT/meshStandardBuilder1/output1\n\tdiffuseColor.xyz = v_POLY_mix1_mix;\n\tfloat POLY_metalness = 1.0;\n\tfloat POLY_roughness = 1.0;\n\tvec3 POLY_emissive = vec3(1.0, 1.0, 1.0);\n\tSSSModel POLY_SSSModel = SSSModel(/*isActive*/false,/*color*/vec3(1.0, 1.0, 1.0), /*thickness*/0.1, /*power*/2.0, /*scale*/16.0, /*distortion*/0.1,/*ambient*/0.4,/*attenuation*/0.8 );\n\n\n\n\n\t// INSERT BODY\n\t// the new body lines should be added before the alphatest_fragment\n\t// so that alpha is set before (which is really how it would be set if the alphamap_fragment above was used by the material node parameters)\n\n\t#include <alphatest_fragment>\n\n\t#include <logdepthbuf_fragment>\n\n\n\t// Higher precision equivalent of gl_FragCoord.z. This assumes depthRange has been left to its default values.\n\tfloat fragCoordZ = 0.5 * vHighPrecisionZW[0] / vHighPrecisionZW[1] + 0.5;\n\n\t#if DEPTH_PACKING == 3200\n\n\t\tgl_FragColor = vec4( vec3( 1.0 - fragCoordZ ), diffuseColor.a );\n\n\t#elif DEPTH_PACKING == 3201\n\n\t\tgl_FragColor = packDepthToRGBA( fragCoordZ );\n\n\t#endif\n\n}\n",
+					"timeDependent": false,
+					"resolutionDependent": false,
+					"paramConfigs": [
+						{
+							"type": "vector3",
+							"name": "blobPos",
+							"defaultValue": [
+								0,
+								0,
+								0
+							],
+							"uniformName": "v_POLY_param_blobPos"
+						}
+					]
+				}
+			}
+		}
+	}
+}

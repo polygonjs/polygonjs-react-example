@@ -1,0 +1,223 @@
+{
+	"multiple_panel": {
+		"split_ratio": 0.5,
+		"split_panel0": {
+			"split_ratio": 0.5,
+			"split_panel0": {
+				"panelTypes": [
+					"viewer"
+				],
+				"currentPanelIndex": 0,
+				"panel_data": {
+					"camera": "/camera/camera:sopGroup/perspectiveCamera",
+					"linkIndex": 1
+				}
+			},
+			"split_panel1": {
+				"panelTypes": [
+					"params"
+				],
+				"currentPanelIndex": 0,
+				"panel_data": {
+					"active_folder": 185,
+					"linkIndex": 1
+				}
+			},
+			"split_mode": "vertical"
+		},
+		"split_panel1": {
+			"panelTypes": [
+				"network",
+				"params",
+				"viewer"
+			],
+			"currentPanelIndex": 0,
+			"panel_data": {
+				"camera": {
+					"position": {
+						"x": 87.12011577424025,
+						"y": -297.25036179450075
+					},
+					"zoom": 0.6910000000000002
+				},
+				"history": {
+					"2": {
+						"position": {
+							"x": -316.62520729684906,
+							"y": 99.3781094527363
+						},
+						"zoom": 0.6910000000000002
+					},
+					"37": {
+						"position": {
+							"x": 417.5637256514207,
+							"y": -213.88101608675112
+						},
+						"zoom": 0.49835288952847245
+					},
+					"100": {
+						"position": {
+							"x": -48,
+							"y": -22
+						},
+						"zoom": 0.5
+					},
+					"179": {
+						"position": {
+							"x": 87.12011577424025,
+							"y": -297.25036179450075
+						},
+						"zoom": 0.6910000000000002
+					},
+					"364": {
+						"position": {
+							"x": 0,
+							"y": -200
+						},
+						"zoom": 0.49835288952847245
+					},
+					"367": {
+						"position": {
+							"x": 1306.6316265670625,
+							"y": 153.05957158498958
+						},
+						"zoom": 0.9723528895284729
+					},
+					"504": {
+						"position": {
+							"x": -130.0178811962001,
+							"y": 124.41219695736584
+						},
+						"zoom": 0.7030000000000002
+					},
+					"662": {
+						"position": {
+							"x": 308.3212735166426,
+							"y": -122.6483357452967
+						},
+						"zoom": 0.6910000000000002
+					},
+					"688": {
+						"position": {
+							"x": -179.45007235890012,
+							"y": -181.18668596237336
+						},
+						"zoom": 0.6910000000000002
+					},
+					"691": {
+						"position": {
+							"x": 385.59753677921583,
+							"y": 185.16533506343305
+						},
+						"zoom": 0.49835288952847245
+					},
+					"2737": {
+						"position": {
+							"x": 95.19725557461409,
+							"y": -4.288164665523157
+						},
+						"zoom": 1.1659999999999997
+					},
+					"2811": {
+						"position": {
+							"x": -260.7097333289171,
+							"y": -39.56288566647511
+						},
+						"zoom": 1.332238408402815
+					}
+				},
+				"linkIndex": 1
+			}
+		},
+		"split_mode": "horizontal"
+	},
+	"currentNodes": [
+		"/camera",
+		"/",
+		"/",
+		"/",
+		"/",
+		"/",
+		"/",
+		"/"
+	],
+	"navigationHistory": {
+		"nodePaths": {
+			"1": [
+				"/",
+				"/rhino",
+				"/",
+				"/bg",
+				"/bg/MAT",
+				"/bg/MAT/meshStandardBuilder1",
+				"/bg/MAT",
+				"/bg",
+				"/",
+				"/bg",
+				"/bg/MAT",
+				"/bg/MAT/meshStandardBuilder1",
+				"/bg/MAT",
+				"/bg",
+				"/",
+				"/bg",
+				"/bg/MAT",
+				"/bg/MAT/meshStandardBuilder1",
+				"/bg/MAT",
+				"/bg",
+				"/",
+				"/",
+				"/bg",
+				"/",
+				"/bg",
+				"/bg/MAT",
+				"/bg/MAT/eventsNetwork1",
+				"/bg/MAT",
+				"/bg/MAT/meshStandardBuilder1",
+				"/bg/MAT",
+				"/bg/MAT/eventsNetwork1",
+				"/bg/MAT",
+				"/bg/MAT/meshStandardBuilder1",
+				"/bg/MAT",
+				"/bg/MAT/eventsNetwork1",
+				"/bg/MAT",
+				"/bg",
+				"/bg/MAT",
+				"/bg/MAT/meshStandardBuilder1",
+				"/bg/MAT",
+				"/bg",
+				"/",
+				"/bg",
+				"/bg/MAT",
+				"/bg/MAT/meshStandardBuilder1",
+				"/bg/MAT",
+				"/bg",
+				"/",
+				"/camera"
+			],
+			"2": [],
+			"3": [],
+			"4": [],
+			"5": [],
+			"6": [],
+			"7": [],
+			"8": []
+		},
+		"index": {
+			"1": 48,
+			"2": -1,
+			"3": -1,
+			"4": -1,
+			"5": -1,
+			"6": -1,
+			"7": -1,
+			"8": -1
+		}
+	},
+	"fullscreenPanelId": null,
+	"saveOptions": {
+		"createExport": false,
+		"compressJs": false,
+		"publishToIntegrations": false
+	},
+	"paramsModal": []
+}

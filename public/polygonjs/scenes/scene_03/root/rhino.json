@@ -1,0 +1,54 @@
+{
+	"type": "geo",
+	"nodes": {
+		"OUT": {
+			"type": "null",
+			"inputs": [
+				"material1"
+			],
+			"cloned_state_overriden": true
+		},
+		"fileGLTF1": {
+			"type": "fileGLTF",
+			"params": {
+				"url": "models/horse_head.glb?timestamp=1652121262314"
+			}
+		},
+		"hierarchy1": {
+			"type": "hierarchy",
+			"params": {
+				"mode": 1
+			},
+			"inputs": [
+				"fileGLTF1"
+			],
+			"cloned_state_overriden": true
+		},
+		"material1": {
+			"type": "material",
+			"params": {
+				"material": "../MAT/meshStandard1"
+			},
+			"inputs": [
+				"hierarchy1"
+			],
+			"cloned_state_overriden": true
+		},
+		"objectProperties1": {
+			"type": "objectProperties",
+			"params": {
+				"tcastShadow": true
+			},
+			"inputs": [
+				"OUT"
+			],
+			"flags": {
+				"display": true
+			},
+			"cloned_state_overriden": true
+		}
+	},
+	"flags": {
+		"display": true
+	}
+}

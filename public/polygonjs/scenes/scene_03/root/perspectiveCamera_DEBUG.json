@@ -1,0 +1,19 @@
+{
+	"type": "perspectiveCamera",
+	"nodes": {
+		"postProcessNetwork1": {
+			"type": "postProcessNetwork"
+		}
+	},
+	"params": {
+		"t": [
+			0,
+			0.5,
+			2.3
+		],
+		"controls": "./events1/cameraOrbitControls1"
+	},
+	"flags": {
+		"display": true
+	}
+}

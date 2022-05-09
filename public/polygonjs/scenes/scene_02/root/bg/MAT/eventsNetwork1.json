@@ -1,0 +1,42 @@
+{
+	"type": "eventsNetwork",
+	"nodes": {
+		"pointer1": {
+			"type": "pointer",
+			"params": {
+				"pointerdown": 0,
+				"pointermove": 1
+			}
+		},
+		"raycast1": {
+			"type": "raycast",
+			"params": {
+				"mouse": [
+					0.9583333333333333,
+					-0.8631114130434783
+				],
+				"intersectWith": 1,
+				"planeDirection": [
+					0,
+					0,
+					1
+				],
+				"planeOffset": 0.5,
+				"tpositionTarget": 1,
+				"position": [
+					1.5407502150851677,
+					-0.39727143467284565,
+					0
+				],
+				"positionTarget": "../../meshStandardBuilder1/blobPos"
+			},
+			"inputs": [
+				{
+					"index": 0,
+					"node": "pointer1",
+					"output": "pointermove"
+				}
+			]
+		}
+	}
+}

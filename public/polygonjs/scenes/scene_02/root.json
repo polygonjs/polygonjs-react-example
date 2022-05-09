@@ -1,0 +1,10 @@
+{
+	"type": "root",
+	"nodes": {},
+	"params": {
+		"mainCameraPath": "/camera/*/perspectiveCamera"
+	},
+	"selection": [
+		"camera"
+	]
+}

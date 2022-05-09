@@ -1,0 +1,490 @@
+{
+	"nodes": {
+		"COP": {
+			"pos": [
+				-200,
+				400
+			],
+			"nodes": {
+				"envMap1": {
+					"pos": [
+						-150,
+						150
+					]
+				},
+				"imageEXR1": {
+					"pos": [
+						-150,
+						50
+					]
+				}
+			}
+		},
+		"bg": {
+			"pos": [
+				100,
+				-50
+			],
+			"nodes": {
+				"material1": {
+					"pos": [
+						-500,
+						350
+					]
+				},
+				"face1": {
+					"pos": [
+						-500,
+						-100
+					]
+				},
+				"normals1": {
+					"pos": [
+						-500,
+						0
+					]
+				},
+				"copy1": {
+					"pos": [
+						-500,
+						150
+					]
+				},
+				"merge1": {
+					"pos": [
+						-500,
+						250
+					]
+				},
+				"MAT": {
+					"pos": [
+						-700,
+						400
+					],
+					"nodes": {
+						"meshStandardBuilder1": {
+							"pos": [
+								0,
+								200
+							],
+							"nodes": {
+								"constant1": {
+									"pos": [
+										-350,
+										-700
+									]
+								},
+								"constant2": {
+									"pos": [
+										-350,
+										-900
+									]
+								},
+								"globals1": {
+									"pos": [
+										-1550,
+										-700
+									]
+								},
+								"output1": {
+									"pos": [
+										850,
+										-450
+									]
+								},
+								"vec3ToFloat2": {
+									"pos": [
+										-1250,
+										-750
+									]
+								},
+								"mod1": {
+									"pos": [
+										-600,
+										-800
+									]
+								},
+								"multAdd1": {
+									"pos": [
+										-1250,
+										-500
+									]
+								},
+								"add1": {
+									"pos": [
+										-1050,
+										-600
+									]
+								},
+								"abs1": {
+									"pos": [
+										-750,
+										-800
+									]
+								},
+								"mix2": {
+									"pos": [
+										-200,
+										-650
+									]
+								},
+								"sin1": {
+									"pos": [
+										-850,
+										-550
+									]
+								},
+								"clamp1": {
+									"pos": [
+										-700,
+										-600
+									]
+								},
+								"smoothstep1": {
+									"pos": [
+										-550,
+										-600
+									]
+								},
+								"cos1": {
+									"pos": [
+										-850,
+										-450
+									]
+								},
+								"atan1": {
+									"pos": [
+										-850,
+										-350
+									]
+								},
+								"pow1": {
+									"pos": [
+										-550,
+										-450
+									]
+								},
+								"clamp2": {
+									"pos": [
+										-700,
+										-450
+									]
+								}
+							}
+						}
+					}
+				},
+				"csgNetwork1": {
+					"pos": [
+						-500,
+						-250
+					],
+					"nodes": {
+						"rectangle1": {
+							"pos": [
+								-100,
+								-100
+							]
+						},
+						"expand1": {
+							"pos": [
+								-100,
+								0
+							]
+						},
+						"extrudeRectangular1": {
+							"pos": [
+								-100,
+								150
+							]
+						}
+					}
+				}
+			}
+		},
+		"perspectiveCamera_MAIN": {
+			"pos": [
+				-200,
+				300
+			],
+			"nodes": {
+				"postProcessNetwork1": {
+					"pos": [
+						-200,
+						150
+					]
+				},
+				"events1": {
+					"pos": [
+						-200,
+						50
+					],
+					"nodes": {
+						"cameraOrbitControls1": {
+							"pos": [
+								150,
+								50
+							]
+						}
+					}
+				}
+			}
+		},
+		"perspectiveCamera_DEBUG": {
+			"pos": [
+				-200,
+				200
+			],
+			"nodes": {
+				"postProcessNetwork1": {
+					"pos": [
+						-200,
+						150
+					]
+				},
+				"events1": {
+					"pos": [
+						-200,
+						50
+					],
+					"nodes": {
+						"cameraOrbitControls1": {
+							"pos": [
+								150,
+								50
+							]
+						}
+					}
+				}
+			}
+		},
+		"lights": {
+			"pos": [
+				100,
+				50
+			],
+			"nodes": {
+				"hemisphereLight1": {
+					"pos": [
+						250,
+						50
+					]
+				},
+				"merge1": {
+					"pos": [
+						150,
+						300
+					]
+				},
+				"polarTransform1": {
+					"pos": [
+						0,
+						50
+					]
+				},
+				"spotLight1": {
+					"pos": [
+						0,
+						-100
+					]
+				}
+			}
+		},
+		"camera": {
+			"pos": [
+				100,
+				150
+			],
+			"nodes": {
+				"box1": {
+					"pos": [
+						0,
+						0
+					]
+				},
+				"cameraFrameMode1": {
+					"pos": [
+						-200,
+						150
+					]
+				},
+				"hierarchy1": {
+					"pos": [
+						-200,
+						300
+					]
+				},
+				"perspectiveCamera_MAIN": {
+					"pos": [
+						-200,
+						-150
+					]
+				},
+				"actor1": {
+					"pos": [
+						-200,
+						400
+					],
+					"nodes": {
+						"add1": {
+							"pos": [
+								-100,
+								300
+							]
+						},
+						"floatToVec3_2": {
+							"pos": [
+								450,
+								300
+							]
+						},
+						"getObjectProperty1": {
+							"pos": [
+								50,
+								450
+							]
+						},
+						"mult1": {
+							"pos": [
+								300,
+								200
+							]
+						},
+						"mult2": {
+							"pos": [
+								300,
+								300
+							]
+						},
+						"multScalar1": {
+							"pos": [
+								250,
+								-50
+							]
+						},
+						"onTick1": {
+							"pos": [
+								350,
+								-100
+							]
+						},
+						"plane1": {
+							"pos": [
+								-450,
+								400
+							]
+						},
+						"rayFromCursor1": {
+							"pos": [
+								-450,
+								250
+							]
+						},
+						"rayIntersectPlane1": {
+							"pos": [
+								-250,
+								300
+							]
+						},
+						"setObjectLookAt1": {
+							"pos": [
+								750,
+								0
+							]
+						},
+						"setObjectPosition1": {
+							"pos": [
+								550,
+								0
+							]
+						},
+						"setObjectRotation1": {
+							"pos": [
+								650,
+								200
+							]
+						},
+						"vec3ToFloat1": {
+							"pos": [
+								0,
+								300
+							]
+						},
+						"vec3ToFloat2": {
+							"pos": [
+								200,
+								500
+							]
+						}
+					}
+				},
+				"cameraControls1": {
+					"pos": [
+						-200,
+						0
+					],
+					"nodes": {
+						"cameraOrbitControls1": {
+							"pos": [
+								0,
+								0
+							]
+						}
+					}
+				}
+			}
+		},
+		"rhino": {
+			"pos": [
+				100,
+				-150
+			],
+			"nodes": {
+				"OUT": {
+					"pos": [
+						-50,
+						50
+					]
+				},
+				"fileGLTF1": {
+					"pos": [
+						-50,
+						-350
+					]
+				},
+				"hierarchy1": {
+					"pos": [
+						-50,
+						-200
+					]
+				},
+				"material1": {
+					"pos": [
+						-50,
+						-50
+					]
+				},
+				"objectProperties1": {
+					"pos": [
+						-50,
+						200
+					]
+				},
+				"MAT": {
+					"pos": [
+						-250,
+						-50
+					],
+					"nodes": {
+						"meshStandard1": {
+							"pos": [
+								0,
+								0
+							]
+						}
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,57 @@
+{
+	"type": "geo",
+	"nodes": {
+		"fileGLTF1": {
+			"type": "fileGLTF",
+			"params": {
+				"url": "models/einstein.glb?timestamp=1652121255046"
+			}
+		},
+		"hierarchy1": {
+			"type": "hierarchy",
+			"params": {
+				"mode": 1
+			},
+			"inputs": [
+				"fileGLTF1"
+			],
+			"cloned_state_overriden": true
+		},
+		"material1": {
+			"type": "material",
+			"params": {
+				"material": "../MAT/meshStandard1"
+			},
+			"inputs": [
+				"hierarchy1"
+			],
+			"cloned_state_overriden": true
+		},
+		"OUT": {
+			"type": "null",
+			"inputs": [
+				"material1"
+			],
+			"cloned_state_overriden": true
+		},
+		"objectProperties1": {
+			"type": "objectProperties",
+			"params": {
+				"tcastShadow": 1
+			},
+			"inputs": [
+				"OUT"
+			],
+			"flags": {
+				"display": true
+			},
+			"cloned_state_overriden": true
+		}
+	},
+	"flags": {
+		"display": true
+	},
+	"selection": [
+		"MAT"
+	]
+}

@@ -1,0 +1,398 @@
+{
+	"nodes": {
+		"COP": {
+			"pos": [
+				-200,
+				200
+			],
+			"nodes": {
+				"imageEXR1": {
+					"pos": [
+						-150,
+						50
+					]
+				},
+				"envMap1": {
+					"pos": [
+						-150,
+						150
+					]
+				}
+			}
+		},
+		"einstein": {
+			"pos": [
+				100,
+				-350
+			],
+			"nodes": {
+				"fileGLTF1": {
+					"pos": [
+						-50,
+						-350
+					]
+				},
+				"hierarchy1": {
+					"pos": [
+						-50,
+						-200
+					]
+				},
+				"material1": {
+					"pos": [
+						-50,
+						-50
+					]
+				},
+				"OUT": {
+					"pos": [
+						-50,
+						50
+					]
+				},
+				"objectProperties1": {
+					"pos": [
+						-50,
+						200
+					]
+				},
+				"MAT": {
+					"pos": [
+						-250,
+						-50
+					],
+					"nodes": {
+						"meshStandard1": {
+							"pos": [
+								0,
+								0
+							]
+						}
+					}
+				}
+			}
+		},
+		"bg": {
+			"pos": [
+				100,
+				-250
+			],
+			"nodes": {
+				"material1": {
+					"pos": [
+						-300,
+						250
+					]
+				},
+				"plane1": {
+					"pos": [
+						-300,
+						0
+					]
+				},
+				"transform2": {
+					"pos": [
+						-300,
+						100
+					]
+				},
+				"MAT": {
+					"pos": [
+						-550,
+						250
+					],
+					"nodes": {
+						"meshStandardBuilder1": {
+							"pos": [
+								0,
+								200
+							],
+							"nodes": {
+								"globals1": {
+									"pos": [
+										-450,
+										0
+									]
+								},
+								"output1": {
+									"pos": [
+										300,
+										0
+									]
+								},
+								"disk1": {
+									"pos": [
+										-50,
+										-50
+									]
+								},
+								"vec3ToFloat1": {
+									"pos": [
+										-300,
+										-50
+									]
+								},
+								"floatToVec2_1": {
+									"pos": [
+										-200,
+										-50
+									]
+								},
+								"mix1": {
+									"pos": [
+										100,
+										-150
+									]
+								},
+								"constant1": {
+									"pos": [
+										-150,
+										-250
+									]
+								},
+								"constant2": {
+									"pos": [
+										-150,
+										-350
+									]
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"perspectiveCamera_MAIN": {
+			"pos": [
+				-200,
+				100
+			],
+			"nodes": {
+				"postProcessNetwork1": {
+					"pos": [
+						-200,
+						150
+					]
+				},
+				"events1": {
+					"pos": [
+						-200,
+						50
+					],
+					"nodes": {
+						"cameraOrbitControls1": {
+							"pos": [
+								150,
+								50
+							]
+						}
+					}
+				}
+			}
+		},
+		"perspectiveCamera_DEBUG": {
+			"pos": [
+				-200,
+				0
+			],
+			"nodes": {
+				"postProcessNetwork1": {
+					"pos": [
+						-200,
+						150
+					]
+				},
+				"events1": {
+					"pos": [
+						-200,
+						50
+					],
+					"nodes": {
+						"cameraOrbitControls1": {
+							"pos": [
+								150,
+								50
+							]
+						}
+					}
+				}
+			}
+		},
+		"lights": {
+			"pos": [
+				100,
+				-150
+			],
+			"nodes": {
+				"spotLight1": {
+					"pos": [
+						0,
+						-100
+					]
+				},
+				"polarTransform1": {
+					"pos": [
+						0,
+						50
+					]
+				},
+				"hemisphereLight1": {
+					"pos": [
+						250,
+						50
+					]
+				},
+				"merge1": {
+					"pos": [
+						150,
+						300
+					]
+				}
+			}
+		},
+		"camera": {
+			"pos": [
+				100,
+				-50
+			],
+			"nodes": {
+				"box1": {
+					"pos": [
+						0,
+						0
+					]
+				},
+				"perspectiveCamera_MAIN": {
+					"pos": [
+						-200,
+						-150
+					]
+				},
+				"cameraFrameMode1": {
+					"pos": [
+						-200,
+						150
+					]
+				},
+				"hierarchy1": {
+					"pos": [
+						-200,
+						300
+					]
+				},
+				"cameraControls1": {
+					"pos": [
+						-200,
+						0
+					],
+					"nodes": {
+						"cameraOrbitControls1": {
+							"pos": [
+								0,
+								0
+							]
+						}
+					}
+				},
+				"actor1": {
+					"pos": [
+						-200,
+						400
+					],
+					"nodes": {
+						"onTick1": {
+							"pos": [
+								350,
+								-100
+							]
+						},
+						"setObjectPosition1": {
+							"pos": [
+								550,
+								0
+							]
+						},
+						"rayFromCursor1": {
+							"pos": [
+								-450,
+								250
+							]
+						},
+						"plane1": {
+							"pos": [
+								-450,
+								400
+							]
+						},
+						"rayIntersectPlane1": {
+							"pos": [
+								-250,
+								300
+							]
+						},
+						"vec3ToFloat1": {
+							"pos": [
+								0,
+								300
+							]
+						},
+						"floatToVec3_2": {
+							"pos": [
+								450,
+								300
+							]
+						},
+						"getObjectProperty1": {
+							"pos": [
+								50,
+								450
+							]
+						},
+						"vec3ToFloat2": {
+							"pos": [
+								200,
+								500
+							]
+						},
+						"setObjectLookAt1": {
+							"pos": [
+								750,
+								0
+							]
+						},
+						"setObjectRotation1": {
+							"pos": [
+								650,
+								200
+							]
+						},
+						"multScalar1": {
+							"pos": [
+								250,
+								-50
+							]
+						},
+						"mult1": {
+							"pos": [
+								300,
+								200
+							]
+						},
+						"mult2": {
+							"pos": [
+								300,
+								300
+							]
+						},
+						"add1": {
+							"pos": [
+								-100,
+								300
+							]
+						}
+					}
+				}
+			}
+		}
+	}
+}

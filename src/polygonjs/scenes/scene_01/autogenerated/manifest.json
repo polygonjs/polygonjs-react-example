@@ -1,0 +1,20 @@
+{
+	"properties": "1652130484804",
+	"root": "1652130484804",
+	"nodes": {
+		"COP": "1652130484804",
+		"einstein": "1652130484804",
+		"einstein/MAT": "1652130484804",
+		"bg": "1652130484804",
+		"bg/MAT": "1652130484804",
+		"bg/MAT/meshStandardBuilder1": "1652130484804",
+		"perspectiveCamera_MAIN": "1652130484804",
+		"perspectiveCamera_MAIN/events1": "1652130484804",
+		"perspectiveCamera_DEBUG": "1652130484804",
+		"perspectiveCamera_DEBUG/events1": "1652130484804",
+		"lights": "1652130484804",
+		"camera": "1652130484804",
+		"camera/cameraControls1": "1652130484804",
+		"camera/actor1": "1652130484804"
+	}
+}

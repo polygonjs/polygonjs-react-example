@@ -1,0 +1,192 @@
+{
+	"multiple_panel": {
+		"split_ratio": 0.5,
+		"split_panel0": {
+			"split_ratio": 0.5,
+			"split_panel0": {
+				"panelTypes": [
+					"viewer"
+				],
+				"currentPanelIndex": 0,
+				"panel_data": {
+					"camera": "/camera/camera:sopGroup/perspectiveCamera",
+					"linkIndex": 1
+				}
+			},
+			"split_panel1": {
+				"panelTypes": [
+					"params"
+				],
+				"currentPanelIndex": 0,
+				"panel_data": {
+					"active_folder": null,
+					"linkIndex": 1
+				}
+			},
+			"split_mode": "vertical"
+		},
+		"split_panel1": {
+			"panelTypes": [
+				"network",
+				"params",
+				"viewer"
+			],
+			"currentPanelIndex": 0,
+			"panel_data": {
+				"camera": {
+					"position": {
+						"x": 686.8079432704463,
+						"y": 605.5234431631134
+					},
+					"zoom": 0.6608328552000003
+				},
+				"history": {
+					"2": {
+						"position": {
+							"x": -255,
+							"y": -71
+						},
+						"zoom": 0.6970000000000002
+					},
+					"100": {
+						"position": {
+							"x": -48,
+							"y": -22
+						},
+						"zoom": 0.5
+					},
+					"393": {
+						"position": {
+							"x": 192.5753228120517,
+							"y": -137.51793400286942
+						},
+						"zoom": 0.6970000000000002
+					},
+					"419": {
+						"position": {
+							"x": -182.20946915351502,
+							"y": -165.56671449067431
+						},
+						"zoom": 0.6970000000000002
+					},
+					"489": {
+						"position": {
+							"x": 686.8079432704463,
+							"y": 605.5234431631134
+						},
+						"zoom": 0.6608328552000003
+					},
+					"1237": {
+						"position": {
+							"x": 0,
+							"y": 100
+						},
+						"zoom": 0.6970000000000002
+					},
+					"1332": {
+						"position": {
+							"x": -20.94691535150639,
+							"y": -166.14060258249648
+						},
+						"zoom": 0.6970000000000002
+					},
+					"1358": {
+						"position": {
+							"x": -165.78192252510757,
+							"y": -237.30272596843616
+						},
+						"zoom": 0.6970000000000002
+					},
+					"1613": {
+						"position": {
+							"x": -94,
+							"y": 194
+						},
+						"zoom": 0.5
+					},
+					"1826": {
+						"position": {
+							"x": 0,
+							"y": 0
+						},
+						"zoom": 0.6970000000000002
+					}
+				},
+				"linkIndex": 1
+			}
+		},
+		"split_mode": "horizontal"
+	},
+	"currentNodes": [
+		"/bg/MAT/meshStandardBuilder1",
+		"/",
+		"/",
+		"/",
+		"/",
+		"/",
+		"/",
+		"/"
+	],
+	"navigationHistory": {
+		"nodePaths": {
+			"1": [
+				"/",
+				"/rhino",
+				"/",
+				"/bg",
+				"/bg/MAT",
+				"/bg/MAT/meshStandardBuilder1",
+				"/bg/MAT",
+				"/bg",
+				"/",
+				"/bg",
+				"/",
+				"/bg",
+				"/bg/csgNetwork1",
+				"/bg",
+				"/",
+				"/bg",
+				"/",
+				"/camera",
+				"/camera/actor1",
+				"/camera",
+				"/",
+				"/bg",
+				"/bg/MAT",
+				"/bg/MAT/meshStandardBuilder1",
+				"/bg/MAT",
+				"/bg",
+				"/",
+				"/lights",
+				"/",
+				"/bg",
+				"/bg/MAT",
+				"/bg/MAT/meshStandardBuilder1"
+			],
+			"2": [],
+			"3": [],
+			"4": [],
+			"5": [],
+			"6": [],
+			"7": [],
+			"8": []
+		},
+		"index": {
+			"1": 31,
+			"2": -1,
+			"3": -1,
+			"4": -1,
+			"5": -1,
+			"6": -1,
+			"7": -1,
+			"8": -1
+		}
+	},
+	"fullscreenPanelId": null,
+	"saveOptions": {
+		"createExport": false,
+		"compressJs": false,
+		"publishToIntegrations": false
+	},
+	"paramsModal": []
+}

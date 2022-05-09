@@ -1,0 +1,15 @@
+{
+	"type": "root",
+	"nodes": {},
+	"params": {
+		"bgColor": [
+			0.8117647058823529,
+			0.8196078431372549,
+			0.8274509803921568
+		],
+		"mainCameraPath": "/camera/*/perspectiveCamera"
+	},
+	"selection": [
+		"bg"
+	]
+}

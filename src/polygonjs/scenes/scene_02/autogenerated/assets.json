@@ -1,0 +1,6 @@
+[
+	"models/rhino.glb?timestamp=1652121258378",
+	"./three/js/libs/draco/gltf/draco_decoder.wasm",
+	"./three/js/libs/draco/gltf/draco_wasm_wrapper.js",
+	"https://raw.githubusercontent.com/polygonjs/polygonjs-assets/master//textures/piz_compressed.exr"
+]

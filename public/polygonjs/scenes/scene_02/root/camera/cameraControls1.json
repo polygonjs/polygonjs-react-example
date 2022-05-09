@@ -1,0 +1,27 @@
+{
+	"type": "cameraControls",
+	"nodes": {
+		"cameraOrbitControls1": {
+			"type": "cameraOrbitControls",
+			"params": {
+				"target": [
+					0,
+					0.5,
+					0
+				]
+			}
+		}
+	},
+	"params": {
+		"node": "cameraOrbitControls1"
+	},
+	"inputs": [
+		"perspectiveCamera_MAIN"
+	],
+	"flags": {
+		"bypass": true
+	},
+	"selection": [
+		"cameraOrbitControls1"
+	]
+}

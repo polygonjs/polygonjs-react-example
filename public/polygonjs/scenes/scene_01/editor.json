@@ -1,0 +1,383 @@
+{
+	"multiple_panel": {
+		"split_ratio": 0.5,
+		"split_panel0": {
+			"split_ratio": 0.5,
+			"split_panel0": {
+				"panelTypes": [
+					"viewer"
+				],
+				"currentPanelIndex": 0,
+				"panel_data": {
+					"camera": "/camera/camera:sopGroup/perspectiveCamera",
+					"linkIndex": 1
+				}
+			},
+			"split_panel1": {
+				"panelTypes": [
+					"params"
+				],
+				"currentPanelIndex": 0,
+				"panel_data": {
+					"active_folder": 188,
+					"linkIndex": 1
+				}
+			},
+			"split_mode": "vertical"
+		},
+		"split_panel1": {
+			"panelTypes": [
+				"network",
+				"params",
+				"viewer"
+			],
+			"currentPanelIndex": 0,
+			"panel_data": {
+				"camera": {
+					"position": {
+						"x": -197.84172661870497,
+						"y": 65.94724220623499
+					},
+					"zoom": 0.8340000000000003
+				},
+				"history": {
+					"2": {
+						"position": {
+							"x": -197.84172661870497,
+							"y": 65.94724220623499
+						},
+						"zoom": 0.8340000000000003
+					},
+					"37": {
+						"position": {
+							"x": 125,
+							"y": 125
+						},
+						"zoom": 0.8340000000000003
+					},
+					"98": {
+						"position": {
+							"x": 50.16701094569885,
+							"y": 162.3911009806016
+						},
+						"zoom": 0.8340000000000003
+					},
+					"106": {
+						"position": {
+							"x": -16.666666666666615,
+							"y": -2.2781774580335394
+						},
+						"zoom": 0.8340000000000003
+					},
+					"124": {
+						"position": {
+							"x": 200,
+							"y": -50
+						},
+						"zoom": 0.8340000000000003
+					},
+					"132": {
+						"position": {
+							"x": 102.87769784172664,
+							"y": -161.810551558753
+						},
+						"zoom": 0.8340000000000003
+					},
+					"182": {
+						"position": {
+							"x": -125,
+							"y": -100
+						},
+						"zoom": 0.8340000000000003
+					},
+					"217": {
+						"position": {
+							"x": 50,
+							"y": -50
+						},
+						"zoom": 0.8340000000000003
+					},
+					"219": {
+						"position": {
+							"x": -21.942446043165447,
+							"y": 0.35971223021581267
+						},
+						"zoom": 0.8340000000000003
+					},
+					"243": {
+						"position": {
+							"x": 200,
+							"y": -125
+						},
+						"zoom": 0.8340000000000003
+					},
+					"245": {
+						"position": {
+							"x": 125.65947242206238,
+							"y": -232.37410071942446
+						},
+						"zoom": 0.8340000000000003
+					},
+					"269": {
+						"position": {
+							"x": 159.83213429256588,
+							"y": 11.990407673860908
+						},
+						"zoom": 0.8340000000000003
+					},
+					"271": {
+						"position": {
+							"x": 104.67625899280571,
+							"y": 26.378896882493997
+						},
+						"zoom": 0.8340000000000003
+					},
+					"384": {
+						"position": {
+							"x": 0,
+							"y": 0
+						},
+						"zoom": 0.8340000000000003
+					},
+					"406": {
+						"position": {
+							"x": 0,
+							"y": 0
+						},
+						"zoom": 0.8340000000000003
+					},
+					"485": {
+						"position": {
+							"x": -85.13189448441244,
+							"y": 22.781774580335725
+						},
+						"zoom": 0.8340000000000003
+					},
+					"558": {
+						"position": {
+							"x": -37.170263788968825,
+							"y": -40.767386091127086
+						},
+						"zoom": 0.8340000000000003
+					},
+					"566": {
+						"position": {
+							"x": 0,
+							"y": -100
+						},
+						"zoom": 0.8340000000000003
+					},
+					"646": {
+						"position": {
+							"x": -109.11270983213427,
+							"y": -2.3980815347721816
+						},
+						"zoom": 0.8340000000000003
+					},
+					"783": {
+						"position": {
+							"x": -75.53406815831735,
+							"y": -71.09266715068308
+						},
+						"zoom": 0.8720000000000003
+					},
+					"813": {
+						"position": {
+							"x": -55.155875299760176,
+							"y": 1.1990407673860908
+						},
+						"zoom": 0.8340000000000003
+					},
+					"906": {
+						"position": {
+							"x": 0,
+							"y": 0
+						},
+						"zoom": 0.8720000000000003
+					},
+					"1092": {
+						"position": {
+							"x": -169.0647482014388,
+							"y": -70.74340527577935
+						},
+						"zoom": 0.8340000000000003
+					},
+					"1126": {
+						"position": {
+							"x": -144.6850393700787,
+							"y": 41.33858267716534
+						},
+						"zoom": 1.0160000000000002
+					},
+					"1391": {
+						"position": {
+							"x": 7.194244604316545,
+							"y": -136.69064748201436
+						},
+						"zoom": 1.0296296296296301
+					},
+					"1456": {
+						"position": {
+							"x": 0,
+							"y": 0
+						},
+						"zoom": 0.8340000000000003
+					},
+					"1497": {
+						"position": {
+							"x": -3.9088729016786843,
+							"y": -232.38609112709827
+						},
+						"zoom": 0.9266666666666671
+					}
+				},
+				"linkIndex": 1
+			}
+		},
+		"split_mode": "horizontal"
+	},
+	"currentNodes": [
+		"/",
+		"/einstein",
+		"/einstein",
+		"/einstein",
+		"/einstein",
+		"/einstein",
+		"/einstein",
+		"/einstein"
+	],
+	"navigationHistory": {
+		"nodePaths": {
+			"1": [
+				"/bg/MAT",
+				"/bg",
+				"/",
+				"/perspectiveCamera_MAIN",
+				"/",
+				"/",
+				"/bg",
+				"/",
+				"/bg",
+				"/",
+				"/",
+				"/einstein",
+				"/",
+				"/bg",
+				"/",
+				"/",
+				"/",
+				"/",
+				"/",
+				"/",
+				"/",
+				"/einstein",
+				"/",
+				"/bg",
+				"/",
+				"/",
+				"/einstein",
+				"/",
+				"/bg",
+				"/",
+				"/bg",
+				"/bg/MAT",
+				"/bg",
+				"/bg/MAT",
+				"/bg",
+				"/bg/MAT",
+				"/bg/MAT/meshStandardBuilder1",
+				"/bg/MAT",
+				"/bg",
+				"/",
+				"/lights",
+				"/",
+				"/lights",
+				"/",
+				"/lights",
+				"/",
+				"/einstein",
+				"/einstein/MAT",
+				"/einstein",
+				"/einstein/MAT",
+				"/einstein",
+				"/einstein/MAT",
+				"/einstein",
+				"/",
+				"/bg",
+				"/bg/MAT",
+				"/bg",
+				"/",
+				"/lights",
+				"/",
+				"/bg",
+				"/bg/MAT",
+				"/bg",
+				"/",
+				"/lights",
+				"/",
+				"/camera",
+				"/",
+				"/camera",
+				"/camera/cameraControls1",
+				"/camera",
+				"/camera/actor1",
+				"/camera",
+				"/camera/actor1",
+				"/camera",
+				"/camera/actor1",
+				"/camera",
+				"/camera/actor1",
+				"/camera",
+				"/camera/actor1",
+				"/camera",
+				"/camera/actor1",
+				"/camera",
+				"/",
+				"/lights",
+				"/",
+				"/",
+				"/",
+				"/lights",
+				"/"
+			],
+			"2": [
+				"/einstein"
+			],
+			"3": [
+				"/einstein"
+			],
+			"4": [
+				"/einstein"
+			],
+			"5": [
+				"/einstein"
+			],
+			"6": [
+				"/einstein"
+			],
+			"7": [
+				"/einstein"
+			],
+			"8": [
+				"/einstein"
+			]
+		},
+		"index": {
+			"1": 89,
+			"2": 0,
+			"3": 0,
+			"4": 0,
+			"5": 0,
+			"6": 0,
+			"7": 0,
+			"8": 0
+		}
+	},
+	"fullscreenPanelId": null,
+	"saveOptions": {
+		"createExport": false,
+		"compressJs": false,
+		"publishToIntegrations": false
+	},
+	"paramsModal": []
+}

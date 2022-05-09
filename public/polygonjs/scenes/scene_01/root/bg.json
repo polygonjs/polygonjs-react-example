@@ -1,0 +1,47 @@
+{
+	"type": "geo",
+	"nodes": {
+		"material1": {
+			"type": "material",
+			"params": {
+				"material": "../MAT/meshStandardBuilder1"
+			},
+			"inputs": [
+				"transform2"
+			],
+			"flags": {
+				"display": true
+			}
+		},
+		"plane1": {
+			"type": "plane",
+			"params": {
+				"direction": [
+					0,
+					0,
+					1
+				]
+			}
+		},
+		"transform2": {
+			"type": "transform",
+			"params": {
+				"t": [
+					0,
+					0.5,
+					-0.5
+				],
+				"scale": 17
+			},
+			"inputs": [
+				"plane1"
+			]
+		}
+	},
+	"flags": {
+		"display": true
+	},
+	"selection": [
+		"MAT"
+	]
+}
