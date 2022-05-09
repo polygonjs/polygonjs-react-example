@@ -23,7 +23,7 @@ function onSceneReady_03(scene: PolySceneWithNodeMap_scene_03) {
 
 export const Slider = () => {
 	const [details, setDetails] = React.useState<TrackDetails | null>(null);
-	const [refCallback, slider] = useKeenSlider(
+	const [refCallback] = useKeenSlider(
 		{
 			loop: true,
 			slideChanged() {
@@ -56,7 +56,7 @@ export const Slider = () => {
 	function renderState(idx: number): boolean {
 		if (!details) return true;
 		const slide = details.slides[idx];
-		return slide.portion != 0;
+		return slide.portion !== 0;
 	}
 
 	return (
