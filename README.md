@@ -14,19 +14,12 @@
 
 This is repository shows an example on how to use [Polygonjs React Component](https://github.com/polygonjs/polygonjs-react).
 
-<table style="margin:0px;padding:0px">
-	<tr style="margin:0px;padding:0px">
-		<td style="margin:0px;padding:0px"><img src="https://github.com/polygonjs/polygonjs-assets/blob/master/tutorials/react/scene_01.gif?raw=true"></img></td>
-		<td style="margin:0px;padding:0px"><img src="https://github.com/polygonjs/polygonjs-assets/blob/master/tutorials/react/scene_02.gif?raw=true"></img></td>
-	</tr>
-	<tr style="margin:0px;padding:0px">
-		<td style="margin:0px;padding:0px"><img src="https://github.com/polygonjs/polygonjs-assets/blob/master/tutorials/react/scene_03.gif?raw=true"></img></td>
-		<td style="margin:0px;padding:0px"><img src="https://github.com/polygonjs/polygonjs-assets/blob/master/tutorials/react/react_example.gif?raw=true"></img></td>
-	</tr>
-</table>
+<p align="center">
+<img src="https://github.com/polygonjs/polygonjs-assets/blob/master/tutorials/react/react_example.gif?raw=true" alt="React + Polygonjs"></img>
+</p>
 
 # Install & Run
 
 -   install: `yarn` or `npm run install`
 
--   run: `yarn serve` or `npm run serve`
+-   run: `yarn start` or `npm run start`
