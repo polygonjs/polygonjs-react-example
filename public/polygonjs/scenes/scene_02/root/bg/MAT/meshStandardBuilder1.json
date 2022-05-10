@@ -892,8 +892,7 @@
 					"options": {
 						"spare": true,
 						"editable": false
-					},
-					"overriden_options": {}
+					}
 				},
 				"preAdd": {
 					"type": "float",
@@ -973,8 +972,8 @@
 				"dependentOnFoundNode": true
 			},
 			"raw_input": [
-				3.49730743616249,
-				-0.7074263852294684,
+				2.775037422172411,
+				-0.17522742755256782,
 				-0.5
 			],
 			"overriden_options": {

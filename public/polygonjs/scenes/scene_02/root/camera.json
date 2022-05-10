@@ -18,10 +18,7 @@
 			"type": "hierarchy",
 			"inputs": [
 				"cameraFrameMode1"
-			],
-			"flags": {
-				"display": true
-			}
+			]
 		},
 		"perspectiveCamera_MAIN": {
 			"type": "perspectiveCamera",

@@ -391,5 +391,11 @@
 				}
 			]
 		}
+	},
+	"inputs": [
+		"hierarchy1"
+	],
+	"flags": {
+		"display": true
 	}
 }

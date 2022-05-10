@@ -1,4 +1,3 @@
-
 import {PolyScene} from '@polygonjs/polygonjs/dist/src/engine/scene/PolyScene';
 // obj
 import {CopNetworkObjNode} from '@polygonjs/polygonjs/dist/src/engine/nodes/obj/CopNetwork';
@@ -108,7 +107,9 @@ export class PolySceneWithNodeMap_scene_02 extends PolyScene {
 	node(path: '/rhino/objectProperties1'): ObjectPropertiesSopNode;
 	node(path: '/rhino/MAT'): MaterialsNetworkSopNode;
 	node(path: '/rhino/MAT/meshStandard1'): MeshStandardMatNode;
-	node(path: string):any /* we need any for now as otherwise an error occurs when adding plugins to the overloaded methods */ {
+	node(
+		path: string
+	): any /* we need any for now as otherwise an error occurs when adding plugins to the overloaded methods */ {
 		return super.node(path);
 	}
 }
