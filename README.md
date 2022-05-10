@@ -29,4 +29,6 @@ This is repository shows an example on how to use [Polygonjs React Component](ht
 
 -   install: `yarn` or `npm run install`
 
--   run: `yarn start` or `npm run start`
+-   run the demo: `yarn start` or `npm run start`
+
+-   open the 3D scenes: `yarn polygon` and go to `http://localhost:8091?scene=scene_01` , `http://localhost:8091?scene=scene_02` or `http://localhost:8091?scene=scene_03`
