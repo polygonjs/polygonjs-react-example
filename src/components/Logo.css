@@ -42,3 +42,15 @@ a:active {
 .logo-container .logo:hover .link-label {
 	border-bottom: 2px solid #222;
 }
+
+.swipe-indicator {
+	position: absolute;
+	top: 5px;
+}
+.swipe-indicator.left {
+	left: 20px;
+}
+
+.swipe-indicator.right {
+	right: 20px;
+}
