@@ -1479,10 +1479,10 @@
     tone "14.7.77"
     xatlas-web "0.1.0"
 
-"@polygonjs/react@^1.1.258":
-  version "1.1.258"
-  resolved "https://registry.yarnpkg.com/@polygonjs/react/-/react-1.1.258.tgz#c19d12235c388feb47a3ae5f2864ba4bc8858f97"
-  integrity sha512-iPCfmtXp0dIyFWcPFD74Pr4F0kHonR4CktLK4Q1I2witCUslThV8DR3APsPveCo5eTg4nlOhRJct2MMgcqp+uA==
+"@polygonjs/react@^1.1.258-2":
+  version "1.1.258-2"
+  resolved "https://registry.yarnpkg.com/@polygonjs/react/-/react-1.1.258-2.tgz#e0dddee544f426a356481dd7a6c00bb6f7074c31"
+  integrity sha512-JX/Y4JM+zaAwo5omuk6tXDxh+qW1BZ6wADZqvdSP/KfQ7QBgSABfjH+fJfBhehMaCK1/LQo0J7dTgReGlgHF+g==
   dependencies:
     "@polygonjs/polygonjs" "^1.1.258"
     "@types/react" "^18.0.8"
