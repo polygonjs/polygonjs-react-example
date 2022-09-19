@@ -3,6 +3,6 @@
 	"nodes": {},
 	"params": {
 		"backgroundMode": 0,
-		"mainCameraPath": "/camera/*/perspectiveCamera"
+		"mainCameraPath": "/camera/camera:sopGroup/perspectiveCamera_MAIN"
 	}
 }

@@ -1,21 +1,33 @@
 {
-	"properties": "1652140213293",
-	"root": "1652140213293",
+	"properties": "1663589189992",
+	"root": "1663589189992",
 	"nodes": {
-		"COP": "1652140213293",
+		"COP": "1663589189992",
 		"bg": "1652140213293",
 		"bg/MAT": "1652140213293",
-		"bg/MAT/meshStandardBuilder1": "1652140213293",
-		"bg/MAT/eventsNetwork1": "1652140213293",
+		"bg/MAT/meshStandardBuilder1": "1663589270147",
+		"bg/MAT/eventsNetwork1": "1663589270147",
 		"perspectiveCamera_MAIN": "1652140213293",
-		"perspectiveCamera_MAIN/events1": "1652140213293",
+		"perspectiveCamera_MAIN/events1": "1663589189992",
 		"perspectiveCamera_DEBUG": "1652140213293",
-		"perspectiveCamera_DEBUG/events1": "1652140213293",
-		"lights": "1652140213293",
+		"perspectiveCamera_DEBUG/events1": "1663589189992",
+		"lights": "1663589189992",
 		"camera": "1652140213293",
-		"camera/actor1": "1652140213293",
-		"camera/cameraControls1": "1652140213293",
-		"rhino": "1652140213293",
-		"rhino/MAT": "1652140213293"
+		"camera/actor1": "1663589189992",
+		"camera/cameraControls1": "1663589189992",
+		"rhino": "1663589189992",
+		"rhino/MAT": "1663589189992"
+	},
+	"shaders": {
+		"/bg/MAT/meshStandardBuilder1": {
+			"vertex": "1663589189992",
+			"fragment": "1663589189992",
+			"customDepthMaterial.vertex": "1663589189992",
+			"customDepthMaterial.fragment": "1663589189992",
+			"customDistanceMaterial.vertex": "1663589189992",
+			"customDistanceMaterial.fragment": "1663589189992",
+			"customDepthDOFMaterial.vertex": "1663589189992",
+			"customDepthDOFMaterial.fragment": "1663589189992"
+		}
 	}
 }

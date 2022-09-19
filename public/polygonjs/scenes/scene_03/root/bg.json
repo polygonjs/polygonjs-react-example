@@ -6,9 +6,7 @@
 			"params": {
 				"material": "../MAT/meshStandardBuilder1"
 			},
-			"inputs": [
-				"merge1"
-			],
+			"inputs": ["merge1"],
 			"flags": {
 				"display": true
 			}
@@ -18,57 +16,34 @@
 			"params": {
 				"makeFacesUnique": 1
 			},
-			"inputs": [
-				"csgNetwork1"
-			]
+			"inputs": ["csgNetwork1"]
 		},
 		"normals1": {
 			"type": "normals",
-			"inputs": [
-				"face1"
-			]
+			"inputs": ["face1"]
 		},
 		"copy1": {
 			"type": "copy",
 			"params": {
 				"count": 70,
-				"t": [
-					0,
-					0,
-					-0.4
-				],
-				"r": [
-					0,
-					0,
-					1
-				],
+				"t": [0, 0, -0.4],
+				"r": [0, 0, 1],
 				"scale": 0.95
 			},
-			"inputs": [
-				"normals1"
-			]
+			"inputs": ["normals1"]
 		},
 		"merge1": {
 			"type": "merge",
 			"params": {
 				"compact": 1
 			},
-			"inputs": [
-				"copy1"
-			]
+			"inputs": ["copy1"]
 		}
 	},
 	"params": {
-		"t": [
-			0,
-			0.5,
-			0
-		]
+		"t": [0, 0.5, 0]
 	},
 	"flags": {
 		"display": true
-	},
-	"selection": [
-		"MAT"
-	]
+	}
 }

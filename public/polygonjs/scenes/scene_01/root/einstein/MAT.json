@@ -6,7 +6,6 @@
 			"params": {
 				"useEnvMap": 1,
 				"envMap": "../../../COP/envMap1",
-				"metalness": 0,
 				"roughness": 0
 			}
 		}

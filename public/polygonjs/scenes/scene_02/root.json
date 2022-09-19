@@ -2,9 +2,6 @@
 	"type": "root",
 	"nodes": {},
 	"params": {
-		"mainCameraPath": "/camera/*/perspectiveCamera"
-	},
-	"selection": [
-		"camera"
-	]
+		"mainCameraPath": "/camera/camera:sopGroup/perspectiveCamera_MAIN"
+	}
 }

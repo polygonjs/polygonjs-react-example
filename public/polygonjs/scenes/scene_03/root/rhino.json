@@ -3,9 +3,7 @@
 	"nodes": {
 		"OUT": {
 			"type": "null",
-			"inputs": [
-				"material1"
-			],
+			"inputs": ["material1"],
 			"cloned_state_overriden": true
 		},
 		"fileGLTF1": {
@@ -19,9 +17,7 @@
 			"params": {
 				"mode": 1
 			},
-			"inputs": [
-				"fileGLTF1"
-			],
+			"inputs": ["fileGLTF1"],
 			"cloned_state_overriden": true
 		},
 		"material1": {
@@ -29,9 +25,7 @@
 			"params": {
 				"material": "../MAT/meshStandard1"
 			},
-			"inputs": [
-				"hierarchy1"
-			],
+			"inputs": ["hierarchy1"],
 			"cloned_state_overriden": true
 		},
 		"objectProperties1": {
@@ -39,9 +33,7 @@
 			"params": {
 				"tcastShadow": true
 			},
-			"inputs": [
-				"OUT"
-			],
+			"inputs": ["OUT"],
 			"flags": {
 				"display": true
 			},

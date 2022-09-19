@@ -10,24 +10,16 @@
 				"frameMode": 2,
 				"expectedAspectRatio": 1
 			},
-			"inputs": [
-				"cameraControls1"
-			]
+			"inputs": ["cameraControls1"]
 		},
 		"hierarchy1": {
 			"type": "hierarchy",
-			"inputs": [
-				"cameraFrameMode1"
-			]
+			"inputs": ["cameraFrameMode1"]
 		},
 		"perspectiveCamera_MAIN": {
 			"type": "perspectiveCamera",
 			"params": {
-				"position": [
-					0,
-					0.5,
-					2.5000000000000004
-				]
+				"position": [0, 0.5, 2.5000000000000004]
 			}
 		}
 	},

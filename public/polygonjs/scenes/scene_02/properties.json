@@ -3,8 +3,8 @@
 	"maxFrame": 100,
 	"maxFrameLocked": false,
 	"realtimeState": true,
-	"mainCameraPath": "/camera/*/perspectiveCamera",
+	"mainCameraPath": "/camera/camera:sopGroup/perspectiveCamera_MAIN",
 	"versions": {
-		"polygonjs": "1.1.258"
+		"polygonjs": "1.2.21"
 	}
 }

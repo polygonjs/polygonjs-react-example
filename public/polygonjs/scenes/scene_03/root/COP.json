@@ -3,15 +3,10 @@
 	"nodes": {
 		"envMap1": {
 			"type": "envMap",
-			"inputs": [
-				"imageEXR1"
-			]
+			"inputs": ["imageEXR1"]
 		},
 		"imageEXR1": {
 			"type": "imageEXR"
 		}
-	},
-	"selection": [
-		"imageEXR1"
-	]
+	}
 }

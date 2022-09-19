@@ -10,9 +10,7 @@
 				"delta": 0.2600074,
 				"segments": 8
 			},
-			"inputs": [
-				"rectangle1"
-			]
+			"inputs": ["rectangle1"]
 		},
 		"extrudeRectangular1": {
 			"type": "extrudeRectangular",
@@ -20,9 +18,7 @@
 				"size": 0.0200000098,
 				"height": 0.0200000098
 			},
-			"inputs": [
-				"expand1"
-			],
+			"inputs": ["expand1"],
 			"flags": {
 				"display": true
 			}

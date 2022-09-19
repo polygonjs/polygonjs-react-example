@@ -4,47 +4,39 @@
 		"split_panel0": {
 			"split_ratio": 0.5,
 			"split_panel0": {
-				"panelTypes": [
-					"viewer"
-				],
+				"panelTypes": ["viewer"],
 				"currentPanelIndex": 0,
 				"panel_data": {
-					"camera": "/camera/camera:sopGroup/perspectiveCamera",
+					"camera": "/camera/camera:sopGroup/perspectiveCamera_MAIN",
 					"linkIndex": 1
 				}
 			},
 			"split_panel1": {
-				"panelTypes": [
-					"params"
-				],
+				"panelTypes": ["params"],
 				"currentPanelIndex": 0,
 				"panel_data": {
-					"active_folder": 188,
+					"active_folder": null,
 					"linkIndex": 1
 				}
 			},
 			"split_mode": "vertical"
 		},
 		"split_panel1": {
-			"panelTypes": [
-				"network",
-				"params",
-				"viewer"
-			],
+			"panelTypes": ["network", "params", "viewer"],
 			"currentPanelIndex": 0,
 			"panel_data": {
 				"camera": {
 					"position": {
-						"x": -197.84172661870497,
-						"y": 65.94724220623499
+						"x": -27.795951715190327,
+						"y": 55.046868267105054
 					},
 					"zoom": 0.8340000000000003
 				},
 				"history": {
 					"2": {
 						"position": {
-							"x": -197.84172661870497,
-							"y": 65.94724220623499
+							"x": -27.795951715190327,
+							"y": 55.046868267105054
 						},
 						"zoom": 0.8340000000000003
 					},
@@ -87,6 +79,13 @@
 						"position": {
 							"x": -125,
 							"y": -100
+						},
+						"zoom": 0.8340000000000003
+					},
+					"205": {
+						"position": {
+							"x": 100,
+							"y": -119.54983132634517
 						},
 						"zoom": 0.8340000000000003
 					},
@@ -236,93 +235,10 @@
 		},
 		"split_mode": "horizontal"
 	},
-	"currentNodes": [
-		"/",
-		"/einstein",
-		"/einstein",
-		"/einstein",
-		"/einstein",
-		"/einstein",
-		"/einstein",
-		"/einstein"
-	],
+	"currentNodes": ["/", "/einstein", "/einstein", "/einstein", "/einstein", "/einstein", "/einstein", "/einstein"],
 	"navigationHistory": {
 		"nodePaths": {
 			"1": [
-				"/bg/MAT",
-				"/bg",
-				"/",
-				"/perspectiveCamera_MAIN",
-				"/",
-				"/",
-				"/bg",
-				"/",
-				"/bg",
-				"/",
-				"/",
-				"/einstein",
-				"/",
-				"/bg",
-				"/",
-				"/",
-				"/",
-				"/",
-				"/",
-				"/",
-				"/",
-				"/einstein",
-				"/",
-				"/bg",
-				"/",
-				"/",
-				"/einstein",
-				"/",
-				"/bg",
-				"/",
-				"/bg",
-				"/bg/MAT",
-				"/bg",
-				"/bg/MAT",
-				"/bg",
-				"/bg/MAT",
-				"/bg/MAT/meshStandardBuilder1",
-				"/bg/MAT",
-				"/bg",
-				"/",
-				"/lights",
-				"/",
-				"/lights",
-				"/",
-				"/lights",
-				"/",
-				"/einstein",
-				"/einstein/MAT",
-				"/einstein",
-				"/einstein/MAT",
-				"/einstein",
-				"/einstein/MAT",
-				"/einstein",
-				"/",
-				"/bg",
-				"/bg/MAT",
-				"/bg",
-				"/",
-				"/lights",
-				"/",
-				"/bg",
-				"/bg/MAT",
-				"/bg",
-				"/",
-				"/lights",
-				"/",
-				"/camera",
-				"/",
-				"/camera",
-				"/camera/cameraControls1",
-				"/camera",
-				"/camera/actor1",
-				"/camera",
-				"/camera/actor1",
 				"/camera",
 				"/camera/actor1",
 				"/camera",
@@ -338,32 +254,22 @@
 				"/",
 				"/",
 				"/lights",
+				"/",
+				"/camera",
+				"/",
+				"/camera",
 				"/"
 			],
-			"2": [
-				"/einstein"
-			],
-			"3": [
-				"/einstein"
-			],
-			"4": [
-				"/einstein"
-			],
-			"5": [
-				"/einstein"
-			],
-			"6": [
-				"/einstein"
-			],
-			"7": [
-				"/einstein"
-			],
-			"8": [
-				"/einstein"
-			]
+			"2": ["/einstein"],
+			"3": ["/einstein"],
+			"4": ["/einstein"],
+			"5": ["/einstein"],
+			"6": ["/einstein"],
+			"7": ["/einstein"],
+			"8": ["/einstein"]
 		},
 		"index": {
-			"1": 89,
+			"1": 19,
 			"2": 0,
 			"3": 0,
 			"4": 0,
@@ -376,7 +282,9 @@
 	"fullscreenPanelId": null,
 	"saveOptions": {
 		"createExport": false,
+		"skipExportSinceRemoteAssetsPresents": false,
 		"compressJs": false,
+		"createZip": false,
 		"publishToIntegrations": false
 	},
 	"paramsModal": []

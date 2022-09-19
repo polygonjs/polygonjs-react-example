@@ -4,15 +4,8 @@
 		"cameraOrbitControls1": {
 			"type": "cameraOrbitControls",
 			"params": {
-				"target": [
-					-0.0007780588433307105,
-					0.37528316163419373,
-					-0.06528324426926008
-				]
+				"target": [-0.0007780588433307105, 0.37528316163419373, -0.06528324426926008]
 			}
 		}
-	},
-	"selection": [
-		"cameraOrbitControls1"
-	]
+	}
 }

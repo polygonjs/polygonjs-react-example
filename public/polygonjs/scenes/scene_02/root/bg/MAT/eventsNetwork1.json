@@ -11,23 +11,12 @@
 		"raycast1": {
 			"type": "raycast",
 			"params": {
-				"mouse": [
-					0.7604166666666667,
-					-0.4826766304347827
-				],
+				"mouse": [0.8525518694987595, -0.9451269201330237],
 				"intersectWith": 1,
-				"planeDirection": [
-					0,
-					0,
-					1
-				],
+				"planeDirection": [0, 0, 1],
 				"planeOffset": 0.5,
 				"tpositionTarget": 1,
-				"position": [
-					1.5407502150851677,
-					-0.39727143467284565,
-					0
-				],
+				"position": [1.5407502150851677, -0.39727143467284565, 0],
 				"positionTarget": "../../meshStandardBuilder1/blobPos"
 			},
 			"inputs": [

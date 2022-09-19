@@ -1,9 +1,9 @@
 {
 	"name": "react-tutorial-03",
-	"version": "0.1.0",
+	"version": "1.2.21-1",
 	"private": true,
 	"dependencies": {
-		"@polygonjs/react": "^1.1.258-2",
+		"@polygonjs/react": "^1.2.21",
 		"@testing-library/jest-dom": "^5.16.4",
 		"@testing-library/react": "^13.1.1",
 		"@testing-library/user-event": "^13.5.0",
@@ -12,7 +12,7 @@
 		"@types/react": "^18.0.8",
 		"@types/react-dom": "^18.0.0",
 		"keen-slider": "^6.6.10",
-		"polygonjs-editor": "^1.1.258-1",
+		"polygonjs-editor": "^1.2.21-1",
 		"react": "^18.1.0",
 		"react-dom": "^18.1.0",
 		"react-scripts": "5.0.1",

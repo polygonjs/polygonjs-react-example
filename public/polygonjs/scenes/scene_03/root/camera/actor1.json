@@ -6,11 +6,7 @@
 			"params": {
 				"add0": {
 					"type": "vector3",
-					"default_value": [
-						0,
-						0,
-						0
-					],
+					"default_value": [0, 0, 0],
 					"options": {
 						"spare": true,
 						"editable": false
@@ -18,20 +14,12 @@
 				},
 				"add1": {
 					"type": "vector3",
-					"default_value": [
-						0,
-						0,
-						0
-					],
+					"default_value": [0, 0, 0],
 					"options": {
 						"spare": true,
 						"editable": true
 					},
-					"raw_input": [
-						0,
-						-0.5,
-						0
-					]
+					"raw_input": [0, -0.5, 0]
 				}
 			},
 			"inputs": [
@@ -196,8 +184,8 @@
 			"type": "multScalar",
 			"params": {
 				"value": {
-					"type": "float",
-					"default_value": 1,
+					"type": "vector3",
+					"default_value": [1, 1, 1],
 					"options": {
 						"spare": true,
 						"editable": false
@@ -224,7 +212,7 @@
 				"in": [
 					{
 						"name": "value",
-						"type": "float",
+						"type": "Vector3",
 						"isArray": false
 					},
 					{
@@ -236,7 +224,7 @@
 				"out": [
 					{
 						"name": "val",
-						"type": "float",
+						"type": "Vector3",
 						"isArray": false
 					}
 				]
@@ -248,22 +236,9 @@
 		"plane1": {
 			"type": "plane",
 			"params": {
-				"normal": [
-					0,
-					0,
-					1
-				]
+				"normal": [0, 0, 1]
 			},
-			"connection_points": {
-				"in": [],
-				"out": [
-					{
-						"name": "plane",
-						"type": "Plane",
-						"isArray": false
-					}
-				]
-			}
+			"maxInputsCount": 0
 		},
 		"rayFromCursor1": {
 			"type": "rayFromCursor",
@@ -317,11 +292,7 @@
 		"setObjectLookAt1": {
 			"type": "setObjectLookAt",
 			"params": {
-				"targetPosition": [
-					0,
-					0.5,
-					0
-				]
+				"targetPosition": [0, 0.5, 0]
 			},
 			"maxInputsCount": 6
 		},
@@ -392,9 +363,7 @@
 			]
 		}
 	},
-	"inputs": [
-		"hierarchy1"
-	],
+	"inputs": ["hierarchy1"],
 	"flags": {
 		"display": true
 	}

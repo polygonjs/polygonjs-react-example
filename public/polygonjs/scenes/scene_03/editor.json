@@ -4,19 +4,15 @@
 		"split_panel0": {
 			"split_ratio": 0.5,
 			"split_panel0": {
-				"panelTypes": [
-					"viewer"
-				],
+				"panelTypes": ["viewer"],
 				"currentPanelIndex": 0,
 				"panel_data": {
-					"camera": "/camera/camera:sopGroup/perspectiveCamera",
+					"camera": "/camera/camera:sopGroup/perspectiveCamera_MAIN",
 					"linkIndex": 1
 				}
 			},
 			"split_panel1": {
-				"panelTypes": [
-					"params"
-				],
+				"panelTypes": ["params"],
 				"currentPanelIndex": 0,
 				"panel_data": {
 					"active_folder": null,
@@ -26,27 +22,30 @@
 			"split_mode": "vertical"
 		},
 		"split_panel1": {
-			"panelTypes": [
-				"network",
-				"params",
-				"viewer"
-			],
+			"panelTypes": ["network", "params", "viewer"],
 			"currentPanelIndex": 0,
 			"panel_data": {
 				"camera": {
 					"position": {
-						"x": 735.231685746621,
-						"y": 560.1261845916997
+						"x": 124.7814993947274,
+						"y": -162.8244583370696
 					},
-					"zoom": 0.6608328552000003
+					"zoom": 0.6970000000000002
 				},
 				"history": {
 					"2": {
 						"position": {
-							"x": -255,
-							"y": -71
+							"x": -69.79070107940285,
+							"y": -65.78285145041248
 						},
 						"zoom": 0.6970000000000002
+					},
+					"37": {
+						"position": {
+							"x": 436.29472584602706,
+							"y": -68.12164848030679
+						},
+						"zoom": 0.6608328552000003
 					},
 					"100": {
 						"position": {
@@ -55,7 +54,28 @@
 						},
 						"zoom": 0.5
 					},
+					"179": {
+						"position": {
+							"x": 124.7814993947274,
+							"y": -162.8244583370696
+						},
+						"zoom": 0.6970000000000002
+					},
+					"351": {
+						"position": {
+							"x": 0,
+							"y": -200
+						},
+						"zoom": 0.6608328552000003
+					},
 					"357": {
+						"position": {
+							"x": 735.231685746621,
+							"y": 560.1261845916997
+						},
+						"zoom": 0.6608328552000003
+					},
+					"358": {
 						"position": {
 							"x": 735.231685746621,
 							"y": 560.1261845916997
@@ -124,35 +144,10 @@
 		},
 		"split_mode": "horizontal"
 	},
-	"currentNodes": [
-		"/bg/MAT/meshStandardBuilder1",
-		"/",
-		"/",
-		"/",
-		"/",
-		"/",
-		"/",
-		"/"
-	],
+	"currentNodes": ["/camera", "/", "/", "/", "/", "/", "/", "/"],
 	"navigationHistory": {
 		"nodePaths": {
 			"1": [
-				"/",
-				"/rhino",
-				"/",
-				"/bg",
-				"/bg/MAT",
-				"/bg/MAT/meshStandardBuilder1",
-				"/bg/MAT",
-				"/bg",
-				"/",
-				"/bg",
-				"/",
-				"/bg",
-				"/bg/csgNetwork1",
-				"/bg",
-				"/",
-				"/bg",
 				"/",
 				"/camera",
 				"/camera/actor1",
@@ -168,7 +163,11 @@
 				"/",
 				"/bg",
 				"/bg/MAT",
-				"/bg/MAT/meshStandardBuilder1"
+				"/bg/MAT/meshStandardBuilder1",
+				"/bg/MAT",
+				"/bg",
+				"/",
+				"/camera"
 			],
 			"2": [],
 			"3": [],
@@ -179,7 +178,7 @@
 			"8": []
 		},
 		"index": {
-			"1": 31,
+			"1": 19,
 			"2": -1,
 			"3": -1,
 			"4": -1,
@@ -192,7 +191,9 @@
 	"fullscreenPanelId": null,
 	"saveOptions": {
 		"createExport": false,
+		"skipExportSinceRemoteAssetsPresents": false,
 		"compressJs": false,
+		"createZip": false,
 		"publishToIntegrations": false
 	},
 	"paramsModal": []

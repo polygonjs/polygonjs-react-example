@@ -12,9 +12,7 @@
 			"params": {
 				"mode": 1
 			},
-			"inputs": [
-				"fileGLTF1"
-			],
+			"inputs": ["fileGLTF1"],
 			"cloned_state_overriden": true
 		},
 		"material1": {
@@ -22,16 +20,12 @@
 			"params": {
 				"material": "../MAT/meshStandard1"
 			},
-			"inputs": [
-				"hierarchy1"
-			],
+			"inputs": ["hierarchy1"],
 			"cloned_state_overriden": true
 		},
 		"OUT": {
 			"type": "null",
-			"inputs": [
-				"material1"
-			],
+			"inputs": ["material1"],
 			"cloned_state_overriden": true
 		},
 		"objectProperties1": {
@@ -39,9 +33,7 @@
 			"params": {
 				"tcastShadow": 1
 			},
-			"inputs": [
-				"OUT"
-			],
+			"inputs": ["OUT"],
 			"flags": {
 				"display": true
 			},
@@ -50,8 +42,5 @@
 	},
 	"flags": {
 		"display": true
-	},
-	"selection": [
-		"MAT"
-	]
+	}
 }
