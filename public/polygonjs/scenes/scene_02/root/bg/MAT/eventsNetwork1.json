@@ -11,7 +11,7 @@
 		"raycast1": {
 			"type": "raycast",
 			"params": {
-				"mouse": [0.8525518694987595, -0.9451269201330237],
+				"mouse": [-0.03981264637002346, 0.8239148572400525],
 				"intersectWith": 1,
 				"planeDirection": [0, 0, 1],
 				"planeOffset": 0.5,

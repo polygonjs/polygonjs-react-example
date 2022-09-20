@@ -899,8 +899,7 @@
 					"options": {
 						"spare": true,
 						"editable": false
-					},
-					"overriden_options": {}
+					}
 				},
 				"sdf1": {
 					"type": "float",
@@ -908,8 +907,7 @@
 					"options": {
 						"spare": true,
 						"editable": false
-					},
-					"overriden_options": {}
+					}
 				},
 				"smoothFactor": {
 					"type": "float",
@@ -967,7 +965,7 @@
 				"cook": false,
 				"dependentOnFoundNode": true
 			},
-			"raw_input": [1.89463716546616, -0.8221597623594306, -0.5],
+			"raw_input": [-0.1428329763718016, 1.6525934227961572, -0.5],
 			"overriden_options": {
 				"callback": "{}"
 			}
